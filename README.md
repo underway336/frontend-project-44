@@ -9,3 +9,5 @@
 [![asciicast](https://asciinema.org/a/mwolPVz7RBkzGrblLMbKJPhUE.svg)](https://asciinema.org/a/mwolPVz7RBkzGrblLMbKJPhUE)
 
 <a href="https://asciinema.org/a/mwolPVz7RBkzGrblLMbKJPhUE" target="_blank"><img src="https://asciinema.org/a/mwolPVz7RBkzGrblLMbKJPhUE.svg" /></a>
+
+<script async id="asciicast-mwolPVz7RBkzGrblLMbKJPhUE" src="https://asciinema.org/a/mwolPVz7RBkzGrblLMbKJPhUE.js"></script>
