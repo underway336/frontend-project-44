@@ -25,7 +25,6 @@ for (let i = 0; i < 3; i += 1) {
     questionToUser(`Question: ${number}`);
 
     const solution = userAnswer();
-
     const correctAnswer = isEven();
 
     if (solution === correctAnswer) {
