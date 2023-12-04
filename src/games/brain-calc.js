@@ -1,4 +1,3 @@
-import {} from '../index.js';
+import { greeting } from '../index.js';
 
-const hello = console.log(`Hello, ${userName}`);
-export default hello;
+greeting();
