@@ -1,4 +1,4 @@
-import { userName } from '../cli.js';
+import {} from '../index.js';
 
-const idinaher = console.log(`idinaher ${userName}`);
-export default idinaher;
+const hello = console.log(`Hello, ${userName}`);
+export default hello;
