@@ -34,7 +34,7 @@ export const wrongAnswerTryAgain = () => {
 export const congratulations = () =>
     console.log(`Congratulations, ${userName}!`);
 
-export const getRandomNumber = (min = 0, max = 100) => {
+export const getRandomNumber = (min, max) => {
     const randomNumber = Math.floor(Math.random() * (max - min));
     return randomNumber;
 };
