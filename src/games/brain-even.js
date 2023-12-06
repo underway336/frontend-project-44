@@ -15,7 +15,7 @@ greeting();
 rulesOfTheGame('Answer "yes" if the number is even, otherwise answer "no".');
 
 for (let i = 0; i < 3; i += 1) {
-    const number = getRandomNumber();
+    const number = getRandomNumber(0, 100);
 
     const isEven = () => {
         const res = number % 2 === 0 ? 'yes' : 'no';
