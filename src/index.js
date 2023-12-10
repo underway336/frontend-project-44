@@ -38,3 +38,18 @@ export const getRandomNumber = (min, max) => {
     const randomNumber = Math.floor(Math.random() * (max - min));
     return randomNumber;
 };
+
+export const getGcd = (number1, number2) => {
+    let res = 0;
+    let maxValue = Math.max(number1, number2);
+    let minValue = Math.min(number1, number2);
+    let remainder;
+
+    while (remainder !== 0) {
+        remainder = maxValue % minValue;
+        maxValue = minValue;
+        minValue = remainder;
+        res = maxValue;
+    }
+    return res;
+};
