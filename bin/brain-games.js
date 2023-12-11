@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-import {} from '../src/index.js';
+import {} from '../src/games/brain-games.js';
