@@ -8,6 +8,7 @@ import {
     congratulations,
     wrongAnswer,
     wrongAnswerTryAgain,
+    userCorrectAnswer,
 } from '../index.js';
 
 greeting();
@@ -41,12 +42,7 @@ for (let i = 0; i < 3; i += 1) {
     }
 
     const stringSolution = userAnswer();
-
-    let solution = Number(stringSolution);
-
-    if (Number.isNaN(solution) === true) {
-        solution = stringSolution;
-    }
+    const solution = userCorrectAnswer(stringSolution);
 
     if (solution === correctAnswer) {
         answerIsCorrect();
