@@ -53,3 +53,28 @@ export const getGcd = (number1, number2) => {
     }
     return res;
 };
+
+export const getProgression = (
+    startProgression,
+    progressionStep,
+    progressionLength
+) => {
+    const progression = [];
+    let number = startProgression;
+    for (let i = 0; i < progressionLength; i += 1) {
+        number += progressionStep;
+        progression.push(number);
+    }
+
+    return progression;
+};
+
+export const userCorrectAnswer = (stringSolution) => {
+    let solution = Number(stringSolution);
+
+    if (Number.isNaN(solution) === true) {
+        solution = stringSolution;
+    }
+
+    return solution;
+};
