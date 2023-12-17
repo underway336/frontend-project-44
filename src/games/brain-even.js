@@ -3,6 +3,7 @@ import {
     rulesOfTheGame,
     questionToUser,
     userAnswer,
+    isEven,
     answerIsCorrect,
     congratulations,
     wrongAnswer,
@@ -17,15 +18,10 @@ rulesOfTheGame('Answer "yes" if the number is even, otherwise answer "no".');
 for (let i = 0; i < 3; i += 1) {
     const number = getRandomNumber(0, 100);
 
-    const isEven = () => {
-        const res = number % 2 === 0 ? 'yes' : 'no';
-        return res;
-    };
-
     questionToUser(`Question: ${number}`);
 
     const solution = userAnswer();
-    const correctAnswer = isEven();
+    const correctAnswer = isEven(number);
 
     if (solution === correctAnswer) {
         answerIsCorrect();
