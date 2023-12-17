@@ -39,6 +39,11 @@ export const getRandomNumber = (min, max) => {
     return randomNumber;
 };
 
+export const isEven = (number) => {
+    const res = number % 2 === 0 ? 'yes' : 'no';
+    return res;
+};
+
 export const getGcd = (number1, number2) => {
     let res = 0;
     let maxValue = Math.max(number1, number2);
@@ -77,4 +82,19 @@ export const userCorrectAnswer = (stringSolution) => {
     }
 
     return solution;
+};
+
+export const isPrimeNumber = (number) => {
+    if (number === 1 || number <= 0) {
+        return 'no';
+    }
+    const sqrtNumber = Math.round(Math.sqrt(number));
+    let count = 0;
+    for (let divider = 2; divider <= sqrtNumber; divider += 1) {
+        if (number % divider === 0) {
+            count += 1;
+        }
+    }
+    const res = count === 0 ? 'yes' : 'no';
+    return res;
 };
