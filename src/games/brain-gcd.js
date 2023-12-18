@@ -17,8 +17,8 @@ greeting();
 rulesOfTheGame('Find the greatest common divisor of given numbers.');
 
 for (let i = 0; i < 3; i += 1) {
-    const number1 = getRandomNumber(0, 100);
-    const number2 = getRandomNumber(0, 100);
+    const number1 = getRandomNumber(1, 100);
+    const number2 = getRandomNumber(1, 100);
 
     questionToUser(`Question: ${number1} ${number2}`);
 
