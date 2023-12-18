@@ -1,10 +1,39 @@
+Brain Games
+===========
+
 ### Hexlet tests and linter status:
 
 [![Actions Status](https://github.com/underway336/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/underway336/frontend-project-44/actions)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/5c9fa98d4c408f4841ae/maintainability)](https://codeclimate.com/github/underway336/frontend-project-44/maintainability)
 
-// <a href="https://codeclimate.com/github/underway336/frontend-project-44/test_coverage"><img src="https://api.codeclimate.com/v1/badges/5c9fa98d4c408f4841ae/test_coverage" /></a>
+Install
+-------
+
+Via npm:
+
+```bash
+sudo npm i -g hexlet-code-1.0.0.tgz
+
+sudo npm link
+```
+
+Usage
+-----
+
+Run a specific game from the list below:
+
+1. Even number: `brain-even`
+1. Calculate the expression: `brain-calc`
+1. Greatest common divisor: `brain-gcd`
+1. Guess missing number: `brain-progression`
+1. Prime number: `brain-prime`
+
+## Описание
+
+"Brain-games" набор из 5 мини-игр, запускаемых из консоли.
+
+Пример игры:
 
 [![asciicast](https://asciinema.org/a/U6KnI1BOonNpQ4SDd4wLvsZAe.svg)](https://asciinema.org/a/U6KnI1BOonNpQ4SDd4wLvsZAe)
 
