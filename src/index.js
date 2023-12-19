@@ -83,14 +83,14 @@ export const userCorrectAnswer = (stringSolution) => {
   return solution;
 };
 
-export const isPrimeNumber = (number) => {
+export const isPrimeNumber = (displayNumber) => {
   const minimumPrimeNumber = 2;
-  if (number === 1 || number <= 0) {
+  if (displayNumber === 1 || displayNumber <= 0) {
     return 'no';
   }
-  const squareRoot = Math.round(Math.sqrt(number));
+  const squareRoot = Math.round(Math.sqrt(displayNumber));
   for (let divider = minimumPrimeNumber; divider <= squareRoot; divider += 1) {
-    if (number % divider === 0) {
+    if (displayNumber % divider === 0) {
       return 'no';
     }
   }
