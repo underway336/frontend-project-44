@@ -20,9 +20,10 @@ rulesOfTheGame('Answer "yes" if given number is prime. Otherwise answer "no".');
 
 let repetitionCounter = 0;
 
+const minValue = 2;
+const maxValue = 71;
+
 for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
-  const minValue = 2;
-  const maxValue = 71;
   const displayNumber = getRandomNumber(minValue, maxValue);
 
   questionToUser(`Question: ${displayNumber}`);
