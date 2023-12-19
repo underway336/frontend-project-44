@@ -65,7 +65,9 @@ export const getProgression = (
 ) => {
   const progression = [];
   let number = startProgression;
-  for (let i = 0; i < progressionLength; i += 1) {
+  const step = 1;
+  let cycleCounter = 0;
+  for (cycleCounter; cycleCounter < progressionLength; cycleCounter += step) {
     number += progressionStep;
     progression.push(number);
   }
