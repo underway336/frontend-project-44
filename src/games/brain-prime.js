@@ -16,12 +16,12 @@ greeting();
 rulesOfTheGame('Answer "yes" if given number is prime. Otherwise answer "no".');
 
 for (let i = 0; i < 3; i += 1) {
-  const number = getRandomNumber(0, 71);
+  const displayNumber = getRandomNumber(0, 71);
 
-  questionToUser(`Question: ${number}`);
+  questionToUser(`Question: ${displayNumber}`);
 
   const solution = userAnswer();
-  const correctAnswer = isPrimeNumber(number);
+  const correctAnswer = isPrimeNumber(displayNumber);
 
   if (solution === correctAnswer) {
     answerIsCorrect();
