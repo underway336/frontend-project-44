@@ -34,8 +34,8 @@ export const wrongAnswerTryAgain = () => {
 export const congratulations = () => console.log(`Congratulations, ${userName}!`);
 
 export const getRandomNumber = (minValue, maxValue) => {
-  const randomNumber = Math.floor(Math.random() * (maxValue - minValue));
-  return randomNumber;
+  const randomNumber = Math.floor(Math.random() * (maxValue - minValue)) + minValue;
+  return randomNumber !== 0 ? randomNumber : minValue;
 };
 
 export const isEven = (number) => {
