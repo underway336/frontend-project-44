@@ -4,14 +4,10 @@ import {
   questionToUser,
   getRandomNumber,
   userAnswer,
-  answerIsCorrect,
-  congratulations,
-  wrongAnswer,
-  wrongAnswerTryAgain,
   userCorrectAnswer,
   numberOfRepetitions,
-  maxNumberOfCorrectAnswers,
   stepSize,
+  isCorrect,
 } from '../index.js';
 
 greeting();
@@ -53,15 +49,7 @@ for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCount
   const stringSolution = userAnswer();
   const solution = userCorrectAnswer(stringSolution);
 
-  if (solution === correctAnswer) {
-    answerIsCorrect();
+  const result = isCorrect(solution, correctAnswer, repetitionCounter);
 
-    if (repetitionCounter === maxNumberOfCorrectAnswers) {
-      congratulations();
-    }
-  } else {
-    wrongAnswer(solution, correctAnswer);
-    wrongAnswerTryAgain();
-    break;
-  }
+  if (result === false) break;
 }
