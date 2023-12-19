@@ -33,8 +33,8 @@ export const wrongAnswerTryAgain = () => {
 
 export const congratulations = () => console.log(`Congratulations, ${userName}!`);
 
-export const getRandomNumber = (min, max) => {
-  const randomNumber = Math.floor(Math.random() * (max - min));
+export const getRandomNumber = (minValue, maxValue) => {
+  const randomNumber = Math.floor(Math.random() * (maxValue - minValue));
   return randomNumber;
 };
 
@@ -85,7 +85,7 @@ export const userCorrectAnswer = (stringSolution) => {
 
 export const isPrimeNumber = (displayNumber) => {
   const minimumPrimeNumber = 2;
-  if (displayNumber === 1 || displayNumber <= 0) {
+  if (displayNumber < minimumPrimeNumber) {
     return 'no';
   }
   const squareRoot = Math.round(Math.sqrt(displayNumber));
@@ -96,3 +96,7 @@ export const isPrimeNumber = (displayNumber) => {
   }
   return 'yes';
 };
+
+export const numberOfRepetitions = 3;
+export const maxNumberOfCorrectAnswers = 2;
+export const stepSize = 1;
