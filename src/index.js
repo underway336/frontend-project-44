@@ -15,7 +15,7 @@ export const rulesOfTheGame = (rules) => console.log(rules);
 export const questionToUser = (question) => console.log(question);
 
 export const userAnswer = () => {
-  const answerForm = readlineSync.question(`Your answer: `);
+  const answerForm = readlineSync.question('Your answer: ');
   return answerForm;
 };
 
@@ -23,7 +23,7 @@ export const answerIsCorrect = () => console.log('Correct!');
 
 export const wrongAnswer = (wrongSolution, expectedAnswer) => {
   console.log(
-    `'${wrongSolution}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`
+    `'${wrongSolution}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`,
   );
 };
 
@@ -31,8 +31,7 @@ export const wrongAnswerTryAgain = () => {
   console.log(`Let's try again, ${userName}!`);
 };
 
-export const congratulations = () =>
-  console.log(`Congratulations, ${userName}!`);
+export const congratulations = () => console.log(`Congratulations, ${userName}!`);
 
 export const getRandomNumber = (min, max) => {
   const randomNumber = Math.floor(Math.random() * (max - min));
@@ -62,7 +61,7 @@ export const getGcd = (number1, number2) => {
 export const getProgression = (
   startProgression,
   progressionStep,
-  progressionLength
+  progressionLength,
 ) => {
   const progression = [];
   let number = startProgression;
