@@ -18,19 +18,22 @@ rulesOfTheGame('What number is missing in the progression?');
 
 let repetitionCounter = 0;
 
+const progressionMinValue = 0;
+const progressionMaxValue = 50;
+
+const minSizeProgressionStep = 0;
+const maxSizeProgressionStep = 10;
+
+const arrayOfRandomProgLengths = [5, 6, 7, 8, 9, 10];
+
+const minIndexValue = 0;
+const maxIndexValue = 5;
+
 for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
-  const progressionMinValue = 0;
-  const progressionMaxValue = 50;
   const startProgression = getRandomNumber(progressionMinValue, progressionMaxValue);
 
-  const minSizeProgressionStep = 0;
-  const maxSizeProgressionStep = 10;
   const progressionStep = getRandomNumber(minSizeProgressionStep, maxSizeProgressionStep);
 
-  const arrayOfRandomProgLengths = [5, 6, 7, 8, 9, 10];
-
-  const minIndexValue = 0;
-  const maxIndexValue = 5;
   const progLength = arrayOfRandomProgLengths.at(getRandomNumber(minIndexValue, maxIndexValue));
   const randomIndex = getRandomNumber(minIndexValue, progLength);
 
