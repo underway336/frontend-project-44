@@ -9,18 +9,27 @@ import {
   wrongAnswer,
   wrongAnswerTryAgain,
   userCorrectAnswer,
+  numberOfRepetitions,
+  maxNumberOfCorrectAnswers,
+  stepSize,
 } from '../index.js';
 
 greeting();
 
 rulesOfTheGame('What is the result of the expression?');
 
-for (let i = 0; i < 3; i += 1) {
-  const number1 = getRandomNumber(0, 25);
-  const number2 = getRandomNumber(0, 25);
+let repetitionCounter = 0;
+
+for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
+  const minValue = 0;
+  const maxValue = 25;
+  const number1 = getRandomNumber(minValue, maxValue);
+  const number2 = getRandomNumber(minValue, maxValue);
 
   const symbols = ['+', '-', '*'];
-  const operator = symbols.at(getRandomNumber(0, 3));
+  const minOperatorIndexValue = 0;
+  const maxOperatorIndexValue = 3;
+  const operator = symbols.at(getRandomNumber(minOperatorIndexValue, maxOperatorIndexValue));
 
   questionToUser(`Question: ${number1} ${operator} ${number2}`);
 
@@ -47,7 +56,7 @@ for (let i = 0; i < 3; i += 1) {
   if (solution === correctAnswer) {
     answerIsCorrect();
 
-    if (i === 2) {
+    if (repetitionCounter === maxNumberOfCorrectAnswers) {
       congratulations();
     }
   } else {
