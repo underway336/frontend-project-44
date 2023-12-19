@@ -27,7 +27,7 @@ for (let i = 0; i < 3; i += 1) {
   const progression = getProgression(
     startProgression,
     progressionStep,
-    progressionLength
+    progressionLength,
   );
 
   const missingNumber = progression.at(randomIndex);
@@ -36,9 +36,7 @@ for (let i = 0; i < 3; i += 1) {
 
   for (let n = 0; n < progressionLength; n += 1) {
     if (
-      progressionStep === 0 &&
-      n === randomIndex &&
-      progression[n] === missingNumber
+      progressionStep === 0 && n === randomIndex && progression[n] === missingNumber
     ) {
       resProgression.push(cdr(pair));
       n += 1;
