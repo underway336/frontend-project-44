@@ -9,14 +9,21 @@ import {
   congratulations,
   wrongAnswer,
   wrongAnswerTryAgain,
+  numberOfRepetitions,
+  maxNumberOfCorrectAnswers,
+  stepSize,
 } from '../index.js';
 
 greeting();
 
 rulesOfTheGame('Answer "yes" if given number is prime. Otherwise answer "no".');
 
-for (let i = 0; i < 3; i += 1) {
-  const displayNumber = getRandomNumber(0, 71);
+let repetitionCounter = 0;
+
+for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
+  const minValue = 2;
+  const maxValue = 71;
+  const displayNumber = getRandomNumber(minValue, maxValue);
 
   questionToUser(`Question: ${displayNumber}`);
 
@@ -26,7 +33,7 @@ for (let i = 0; i < 3; i += 1) {
   if (solution === correctAnswer) {
     answerIsCorrect();
 
-    if (i === 2) {
+    if (repetitionCounter === maxNumberOfCorrectAnswers) {
       congratulations();
     }
   } else {
