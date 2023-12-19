@@ -11,40 +11,56 @@ import {
   wrongAnswer,
   wrongAnswerTryAgain,
   userCorrectAnswer,
+  numberOfRepetitions,
+  maxNumberOfCorrectAnswers,
+  stepSize,
 } from '../index.js';
 
 greeting();
 
 rulesOfTheGame('What number is missing in the progression?');
 
-for (let i = 0; i < 3; i += 1) {
-  const startProgression = getRandomNumber(0, 50);
-  const progressionStep = getRandomNumber(0, 10);
-  const randomLengths = [5, 6, 7, 8, 9, 10];
-  const progressionLength = randomLengths.at(getRandomNumber(0, 5));
-  const randomIndex = getRandomNumber(0, progressionLength);
+let repetitionCounter = 0;
+
+for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
+  const progressionMinValue = 0;
+  const progressionMaxValue = 50;
+  const startProgression = getRandomNumber(progressionMinValue, progressionMaxValue);
+
+  const minSizeProgressionStep = 0;
+  const maxSizeProgressionStep = 10;
+  const progressionStep = getRandomNumber(minSizeProgressionStep, maxSizeProgressionStep);
+
+  const arrayOfRandomProgLengths = [5, 6, 7, 8, 9, 10];
+
+  const minIndexValue = 0;
+  const maxIndexValue = 5;
+  const progLength = arrayOfRandomProgLengths.at(getRandomNumber(minIndexValue, maxIndexValue));
+  const randomIndex = getRandomNumber(minIndexValue, progLength);
 
   const progression = getProgression(
     startProgression,
     progressionStep,
-    progressionLength,
+    progLength,
   );
 
   const missingNumber = progression.at(randomIndex);
   const pair = cons(missingNumber, '..');
   const resProgression = [];
 
-  for (let n = 0; n < progressionLength; n += 1) {
+  const step = 1;
+
+  for (let index = 0; index < progLength; index += step) {
     if (
-      progressionStep === 0 && n === randomIndex && progression[n] === missingNumber
+      progressionStep === 0 && index === randomIndex && progression[index] === missingNumber
     ) {
       resProgression.push(cdr(pair));
-      n += 1;
+      index += step;
     }
-    if (progression[n] === missingNumber && progressionStep !== 0) {
+    if (progression[index] === missingNumber && progressionStep !== 0) {
       resProgression.push(cdr(pair));
     } else {
-      resProgression.push(progression[n]);
+      resProgression.push(progression[index]);
     }
   }
 
@@ -60,7 +76,7 @@ for (let i = 0; i < 3; i += 1) {
   if (solution === correctAnswer) {
     answerIsCorrect();
 
-    if (i === 2) {
+    if (repetitionCounter === maxNumberOfCorrectAnswers) {
       congratulations();
     }
   } else {
