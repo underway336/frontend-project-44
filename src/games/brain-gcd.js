@@ -10,15 +10,22 @@ import {
   wrongAnswer,
   wrongAnswerTryAgain,
   userCorrectAnswer,
+  numberOfRepetitions,
+  maxNumberOfCorrectAnswers,
+  stepSize,
 } from '../index.js';
 
 greeting();
 
 rulesOfTheGame('Find the greatest common divisor of given numbers.');
 
-for (let i = 0; i < 3; i += 1) {
-  const number1 = getRandomNumber(1, 100);
-  const number2 = getRandomNumber(1, 100);
+let repetitionCounter = 0;
+
+for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
+  const minValue = 1;
+  const maxValue = 100;
+  const number1 = getRandomNumber(minValue, maxValue);
+  const number2 = getRandomNumber(minValue, maxValue);
 
   questionToUser(`Question: ${number1} ${number2}`);
 
@@ -30,7 +37,7 @@ for (let i = 0; i < 3; i += 1) {
   if (solution === correctAnswer) {
     answerIsCorrect();
 
-    if (i === 2) {
+    if (repetitionCounter === maxNumberOfCorrectAnswers) {
       congratulations();
     }
   } else {
