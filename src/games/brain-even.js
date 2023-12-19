@@ -20,9 +20,10 @@ rulesOfTheGame('Answer "yes" if the number is even, otherwise answer "no".');
 
 let repetitionCounter = 0;
 
+const minValue = 1;
+const maxValue = 100;
+
 for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
-  const minValue = 0;
-  const maxValue = 100;
   const number = getRandomNumber(minValue, maxValue);
 
   questionToUser(`Question: ${number}`);
