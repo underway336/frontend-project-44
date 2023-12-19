@@ -84,16 +84,15 @@ export const userCorrectAnswer = (stringSolution) => {
 };
 
 export const isPrimeNumber = (number) => {
+  const minimumPrimeNumber = 2;
   if (number === 1 || number <= 0) {
     return 'no';
   }
-  const sqrtNumber = Math.round(Math.sqrt(number));
-  let count = 0;
-  for (let divider = 2; divider <= sqrtNumber; divider += 1) {
+  const squareRoot = Math.round(Math.sqrt(number));
+  for (let divider = minimumPrimeNumber; divider <= squareRoot; divider += 1) {
     if (number % divider === 0) {
-      count += 1;
+      return 'no';
     }
   }
-  const res = count === 0 ? 'yes' : 'no';
-  return res;
+  return 'yes';
 };
