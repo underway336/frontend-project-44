@@ -9,14 +9,21 @@ import {
   wrongAnswer,
   wrongAnswerTryAgain,
   getRandomNumber,
+  numberOfRepetitions,
+  maxNumberOfCorrectAnswers,
+  stepSize,
 } from '../index.js';
 
 greeting();
 
 rulesOfTheGame('Answer "yes" if the number is even, otherwise answer "no".');
 
-for (let i = 0; i < 3; i += 1) {
-  const number = getRandomNumber(0, 100);
+let repetitionCounter = 0;
+
+for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
+  const minValue = 0;
+  const maxValue = 100;
+  const number = getRandomNumber(minValue, maxValue);
 
   questionToUser(`Question: ${number}`);
 
@@ -26,7 +33,7 @@ for (let i = 0; i < 3; i += 1) {
   if (solution === correctAnswer) {
     answerIsCorrect();
 
-    if (i === 2) {
+    if (repetitionCounter === maxNumberOfCorrectAnswers) {
       congratulations();
     }
   } else {
