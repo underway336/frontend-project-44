@@ -102,3 +102,18 @@ export const isPrimeNumber = (displayNumber) => {
 export const numberOfRepetitions = 3;
 export const maxNumberOfCorrectAnswers = 2;
 export const stepSize = 1;
+
+export const isCorrect = (solution, correctAnswer, repetitionCounter) => {
+  if (solution === correctAnswer) {
+    answerIsCorrect();
+
+    if (repetitionCounter === maxNumberOfCorrectAnswers) {
+      congratulations();
+    }
+  } else {
+    wrongAnswer(solution, correctAnswer);
+    wrongAnswerTryAgain();
+    return false;
+  }
+  return true;
+};
