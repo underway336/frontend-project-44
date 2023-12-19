@@ -5,14 +5,10 @@ import {
   questionToUser,
   getGcd,
   userAnswer,
-  answerIsCorrect,
-  congratulations,
-  wrongAnswer,
-  wrongAnswerTryAgain,
   userCorrectAnswer,
   numberOfRepetitions,
-  maxNumberOfCorrectAnswers,
   stepSize,
+  isCorrect,
 } from '../index.js';
 
 greeting();
@@ -34,15 +30,7 @@ for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCount
 
   const correctAnswer = getGcd(number1, number2);
 
-  if (solution === correctAnswer) {
-    answerIsCorrect();
+  const result = isCorrect(solution, correctAnswer, repetitionCounter);
 
-    if (repetitionCounter === maxNumberOfCorrectAnswers) {
-      congratulations();
-    }
-  } else {
-    wrongAnswer(solution, correctAnswer);
-    wrongAnswerTryAgain();
-    break;
-  }
+  if (result === false) break;
 }
