@@ -5,13 +5,9 @@ import {
   getRandomNumber,
   isPrimeNumber,
   userAnswer,
-  answerIsCorrect,
-  congratulations,
-  wrongAnswer,
-  wrongAnswerTryAgain,
   numberOfRepetitions,
-  maxNumberOfCorrectAnswers,
   stepSize,
+  isCorrect,
 } from '../index.js';
 
 greeting();
@@ -31,15 +27,7 @@ for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCount
   const solution = userAnswer();
   const correctAnswer = isPrimeNumber(displayNumber);
 
-  if (solution === correctAnswer) {
-    answerIsCorrect();
+  const result = isCorrect(solution, correctAnswer, repetitionCounter);
 
-    if (repetitionCounter === maxNumberOfCorrectAnswers) {
-      congratulations();
-    }
-  } else {
-    wrongAnswer(solution, correctAnswer);
-    wrongAnswerTryAgain();
-    break;
-  }
+  if (result === false) break;
 }
