@@ -38,8 +38,8 @@ export const getRandomNumber = (minValue, maxValue) => {
   return randomNumber !== 0 ? randomNumber : minValue;
 };
 
-export const isEven = (number) => {
-  const res = number % 2 === 0 ? 'yes' : 'no';
+export const isEven = (displayNumber) => {
+  const res = displayNumber % 2 === 0 ? 'yes' : 'no';
   return res;
 };
 
@@ -116,4 +116,22 @@ export const isCorrect = (solution, correctAnswer, repetitionCounter) => {
     return false;
   }
   return true;
+};
+
+export const askQuestionAndCheckAnswer = (minValue, maxValue, isCorrectFunction, condition) => {
+  let repetitionCounter = 0;
+  isCorrectFunction();
+
+  for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
+    const displayNumber = getRandomNumber(minValue, maxValue);
+
+    questionToUser(`Question: ${displayNumber}`);
+
+    const solution = userAnswer();
+    const correctAnswer = condition(displayNumber);
+
+    const result = isCorrect(solution, correctAnswer, repetitionCounter);
+
+    if (result === false) break;
+  }
 };
