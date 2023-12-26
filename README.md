@@ -51,7 +51,7 @@ Run a specific game from the list below:
 1. Guess missing number: `brain-progression`
 1. Prime number: `brain-prime`
 
-## Описание
+## Description
 
 "Brain-games" a set of five mini-games launched from the console
 
