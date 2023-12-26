@@ -53,13 +53,13 @@ Run a specific game from the list below:
 
 ## Описание
 
-"Brain-games" набор из 5 мини-игр, запускаемых из консоли.
+"Brain-games" a set of five mini-games launched from the console
 
-Пример игры:
+Game example:
 
-[![asciicast](https://asciinema.org/a/U6KnI1BOonNpQ4SDd4wLvsZAe.svg)](https://asciinema.org/a/U6KnI1BOonNpQ4SDd4wLvsZAe)
+[![asciicast](https://asciinema.org/a/oIc827r0Hck9kBJMhRKF4bmv3.svg)](https://asciinema.org/a/oIc827r0Hck9kBJMhRKF4bmv3)
 
-[![asciicast](https://asciinema.org/a/0lXEpYY7mYDXC1tMkOANtlhR5.svg)](https://asciinema.org/a/0lXEpYY7mYDXC1tMkOANtlhR5)
+[![asciicast](https://asciinema.org/a/EFEcO7C5IzJbeZq6KpwIf0crl.svg)](https://asciinema.org/a/EFEcO7C5IzJbeZq6KpwIf0crl)
 
 [![asciicast](https://asciinema.org/a/bRIu0c7mLUWEPICpZ5BCoIVBB.svg)](https://asciinema.org/a/bRIu0c7mLUWEPICpZ5BCoIVBB)
 
