@@ -10,13 +10,35 @@ Brain Games
 Install
 -------
 
-Via npm:
+Clone this repository:
 
 ```bash
-sudo npm i -g hexlet-code-1.0.0.tgz
+git clone git@github.com:underway336/frontend-project-44.git
 
+cd frontend-project-44/
+
+make install
+```
+Global install (after installation locally):
+
+```bash
 sudo npm link
 ```
+Uninstall:
+```bash
+$ which brain-games
+/usr/bin/brain-games
+
+sudo rm /usr/bin/brain-games
+sudo rm /usr/bin/brain-even
+sudo rm /usr/bin/brain-calc 
+sudo rm /usr/bin/brain-gcd 
+sudo rm /usr/bin/brain-progression 
+sudo rm /usr/bin/brain-prime 
+```
+Game installation example:
+
+[![asciicast](https://asciinema.org/a/hgTZmRT5GBRM1zJTvt6NaZdU9.svg)](https://asciinema.org/a/hgTZmRT5GBRM1zJTvt6NaZdU9)
 
 Usage
 -----
