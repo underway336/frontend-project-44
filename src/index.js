@@ -1,137 +1,90 @@
+import { car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
 
-let userName = '';
-
-export const greeting = () => {
+export const basicGeneralFunctionality = (rules, getRoundArr) => {
   console.log('Welcome to the Brain Games!');
 
-  userName = readlineSync.question('May I have your name? ');
-
+  const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-};
 
-export const rulesOfTheGame = (rules) => console.log(rules);
+  console.log(rules);
 
-export const questionToUser = (question) => console.log(question);
+  let countOfRounds = 0;
+  for (countOfRounds; countOfRounds < 3; countOfRounds += 1) {
+    console.log(car(getRoundArr[countOfRounds]));
 
-export const userAnswer = () => {
-  const answerForm = readlineSync.question('Your answer: ');
-  return answerForm;
-};
+    const userAnswer = readlineSync.question('Your answer: ');
 
-export const answerIsCorrect = () => console.log('Correct!');
+    const correctAnswer = cdr(getRoundArr[countOfRounds]);
 
-export const wrongAnswer = (wrongSolution, expectedAnswer) => {
-  console.log(
-    `'${wrongSolution}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`,
-  );
-};
-
-export const wrongAnswerTryAgain = () => {
-  console.log(`Let's try again, ${userName}!`);
-};
-
-export const congratulations = () => console.log(`Congratulations, ${userName}!`);
-
-export const getRandomNumber = (minValue, maxValue) => {
-  const randomNumber = Math.floor(Math.random() * (maxValue - minValue)) + minValue;
-  return randomNumber !== 0 ? randomNumber : minValue;
-};
-
-export const isEven = (displayNumber) => {
-  const res = displayNumber % 2 === 0 ? 'yes' : 'no';
-  return res;
-};
-
-export const getGcd = (number1, number2) => {
-  let res = 0;
-  let maxValue = Math.max(number1, number2);
-  let minValue = Math.min(number1, number2);
-  let remainder;
-
-  while (remainder !== 0) {
-    remainder = maxValue % minValue;
-    maxValue = minValue;
-    minValue = remainder;
-    res = maxValue;
-  }
-  return res;
-};
-
-export const getProgression = (
-  startProgression,
-  progressionStep,
-  progressionLength,
-) => {
-  const progression = [];
-  let number = startProgression;
-  const step = 1;
-  let cycleCounter = 0;
-  for (cycleCounter; cycleCounter < progressionLength; cycleCounter += step) {
-    number += progressionStep;
-    progression.push(number);
-  }
-
-  return progression;
-};
-
-export const userCorrectAnswer = (stringSolution) => {
-  let solution = Number(stringSolution);
-
-  if (Number.isNaN(solution) === true) {
-    solution = stringSolution;
-  }
-
-  return solution;
-};
-
-export const isPrimeNumber = (displayNumber) => {
-  const minimumPrimeNumber = 2;
-  if (displayNumber < minimumPrimeNumber) {
-    return 'no';
-  }
-  const squareRoot = Math.round(Math.sqrt(displayNumber));
-  for (let divider = minimumPrimeNumber; divider <= squareRoot; divider += 1) {
-    if (displayNumber % divider === 0) {
-      return 'no';
+    if (userAnswer !== correctAnswer) {
+      console.log(
+        `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`
+      );
+      break;
+    } else {
+      console.log('Correct!');
+      if (countOfRounds === 2) {
+        console.log(`Congratulations, ${userName}!`);
+      }
     }
   }
-  return 'yes';
 };
 
-export const numberOfRepetitions = 3;
-export const maxNumberOfCorrectAnswers = 2;
-export const stepSize = 1;
+export default basicGeneralFunctionality;
 
-export const isCorrect = (solution, correctAnswer, repetitionCounter) => {
-  if (solution === correctAnswer) {
-    answerIsCorrect();
+// export const getGcd = (number1, number2) => {
+//   let res = 0;
+//   let maxValue = Math.max(number1, number2);
+//   let minValue = Math.min(number1, number2);
+//   let remainder;
 
-    if (repetitionCounter === maxNumberOfCorrectAnswers) {
-      congratulations();
-    }
-  } else {
-    wrongAnswer(solution, correctAnswer);
-    wrongAnswerTryAgain();
-    return false;
-  }
-  return true;
-};
+//   while (remainder !== 0) {
+//     remainder = maxValue % minValue;
+//     maxValue = minValue;
+//     minValue = remainder;
+//     res = maxValue;
+//   }
+//   return res;
+// };
 
-export const askQuestionAndCheckAnswer = (minValue, maxValue, isCorrectFunction, condition) => {
-  let repetitionCounter = 0;
-  isCorrectFunction();
+// export const getProgression = (
+//   startProgression,
+//   progressionStep,
+//   progressionLength,
+// ) => {
+//   const progression = [];
+//   let number = startProgression;
+//   const step = 1;
+//   let cycleCounter = 0;
+//   for (cycleCounter; cycleCounter < progressionLength; cycleCounter += step) {
+//     number += progressionStep;
+//     progression.push(number);
+//   }
 
-  for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
-    const displayNumber = getRandomNumber(minValue, maxValue);
+//   return progression;
+// };
 
-    questionToUser(`Question: ${displayNumber}`);
+// export const userCorrectAnswer = (stringSolution) => {
+//   let solution = Number(stringSolution);
 
-    const solution = userAnswer();
-    const correctAnswer = condition(displayNumber);
+//   if (Number.isNaN(solution) === true) {
+//     solution = stringSolution;
+//   }
 
-    const result = isCorrect(solution, correctAnswer, repetitionCounter);
+//   return solution;
+// };
 
-    if (result === false) break;
-  }
-};
+// export const isPrimeNumber = (displayNumber) => {
+//   const minimumPrimeNumber = 2;
+//   if (displayNumber < minimumPrimeNumber) {
+//     return 'no';
+//   }
+//   const squareRoot = Math.round(Math.sqrt(displayNumber));
+//   for (let divider = minimumPrimeNumber; divider <= squareRoot; divider += 1) {
+//     if (displayNumber % divider === 0) {
+//       return 'no';
+//     }
+//   }
+//   return 'yes';
+// };
