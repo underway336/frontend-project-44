@@ -1,55 +1,50 @@
-import {
-  greeting,
-  rulesOfTheGame,
-  questionToUser,
-  getRandomNumber,
-  userAnswer,
-  userCorrectAnswer,
-  numberOfRepetitions,
-  stepSize,
-  isCorrect,
-} from '../index.js';
+import { cons } from '@hexlet/pairs';
+import { basicGeneralFunctionality } from '../index.js';
+import getRandomNumber from '../utils.js';
 
-greeting();
+const runCalc = () => {
+  const rules = 'What is the result of the expression?';
 
-rulesOfTheGame('What is the result of the expression?');
-
-let repetitionCounter = 0;
-
-for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
   const minValue = 0;
   const maxValue = 25;
-  const number1 = getRandomNumber(minValue, maxValue);
-  const number2 = getRandomNumber(minValue, maxValue);
 
-  const symbols = ['+', '-', '*'];
-  const minOperatorIndexValue = 0;
-  const maxOperatorIndexValue = 3;
-  const operator = symbols.at(getRandomNumber(minOperatorIndexValue, maxOperatorIndexValue));
+  const getRoundArr = [];
 
-  questionToUser(`Question: ${number1} ${operator} ${number2}`);
+  let countOfRounds = 0;
+  while (countOfRounds !== 3) {
+    const number1 = getRandomNumber(minValue, maxValue);
+    const number2 = getRandomNumber(minValue, maxValue);
 
-  let correctAnswer = 0;
+    const symbols = ['+', '-', '*'];
+    const minOperatorIndexValue = 0;
+    const maxOperatorIndexValue = 3;
+    const operator = symbols.at(getRandomNumber(minOperatorIndexValue, maxOperatorIndexValue));
 
-  switch (operator) {
-    case '+':
-      correctAnswer = number1 + number2;
-      break;
-    case '-':
-      correctAnswer = number1 - number2;
-      break;
-    case '*':
-      correctAnswer = number1 * number2;
-      break;
-    default:
-      correctAnswer = number1 * number2;
-      break;
+    const questionToUser = (`Question: ${number1} ${operator} ${number2}`);
+
+    let correctAnswer = 0;
+
+    switch (operator) {
+      case '+':
+        correctAnswer = number1 + number2;
+        break;
+      case '-':
+        correctAnswer = number1 - number2;
+        break;
+      case '*':
+        correctAnswer = number1 * number2;
+        break;
+      default:
+        correctAnswer = number1 * number2;
+        break;
+    }
+
+    const getRound = cons(questionToUser, correctAnswer);
+    getRoundArr.push(getRound);
+
+    countOfRounds += 1;
   }
+  return basicGeneralFunctionality(rules, getRoundArr);
+};
 
-  const stringSolution = userAnswer();
-  const solution = userCorrectAnswer(stringSolution);
-
-  const result = isCorrect(solution, correctAnswer, repetitionCounter);
-
-  if (result === false) break;
-}
+export default runCalc;
