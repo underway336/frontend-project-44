@@ -1,78 +1,87 @@
 import { cons, car, cdr } from '@hexlet/pairs';
-import {
-  greeting,
-  rulesOfTheGame,
-  questionToUser,
-  getProgression,
-  getRandomNumber,
-  userAnswer,
-  userCorrectAnswer,
-  numberOfRepetitions,
-  stepSize,
-  isCorrect,
-} from '../index.js';
+import { basicGeneralFunctionality } from '../index.js';
+import getRandomNumber from '../utils.js';
 
-greeting();
+const runBrainProgression = () => {
+  const rules = 'What number is missing in the progression?';
 
-rulesOfTheGame('What number is missing in the progression?');
+  const progressionMinValue = 0;
+  const progressionMaxValue = 50;
 
-let repetitionCounter = 0;
+  const minSizeProgressionStep = 0;
+  const maxSizeProgressionStep = 10;
 
-const progressionMinValue = 0;
-const progressionMaxValue = 50;
+  const arrayOfRandomProgLengths = [5, 6, 7, 8, 9, 10];
 
-const minSizeProgressionStep = 0;
-const maxSizeProgressionStep = 10;
+  const minIndexValue = 0;
+  const maxIndexValue = 5;
 
-const arrayOfRandomProgLengths = [5, 6, 7, 8, 9, 10];
+  const getRoundArr = [];
 
-const minIndexValue = 0;
-const maxIndexValue = 5;
+  let countOfRounds = 0;
+  while (countOfRounds !== 3) {
+    const startProgression = getRandomNumber(progressionMinValue, progressionMaxValue);
 
-for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
-  const startProgression = getRandomNumber(progressionMinValue, progressionMaxValue);
+    const progressionStep = getRandomNumber(minSizeProgressionStep, maxSizeProgressionStep);
 
-  const progressionStep = getRandomNumber(minSizeProgressionStep, maxSizeProgressionStep);
+    const progLength = arrayOfRandomProgLengths.at(getRandomNumber(minIndexValue, maxIndexValue));
+    const randomIndex = getRandomNumber(minIndexValue, progLength);
 
-  const progLength = arrayOfRandomProgLengths.at(getRandomNumber(minIndexValue, maxIndexValue));
-  const randomIndex = getRandomNumber(minIndexValue, progLength);
+    const getProgression = (
+      startProgression,
+      progressionStep,
+      progressionLength,
+    ) => {
+      const progression = [];
+      let number = startProgression;
+      const step = 1;
+      let cycleCounter = 0;
+      for (cycleCounter; cycleCounter < progressionLength; cycleCounter += step) {
+        number += progressionStep;
+        progression.push(number);
+      }
 
-  const progression = getProgression(
-    startProgression,
-    progressionStep,
-    progLength,
-  );
+      return progression;
+    };
 
-  const missingNumber = progression.at(randomIndex);
-  const pair = cons(missingNumber, '..');
-  const resProgression = [];
+    const progression = getProgression(
+      startProgression,
+      progressionStep,
+      progLength,
+    );
 
-  const step = 1;
+    const missingNumber = progression.at(randomIndex);
+    const pair = cons(missingNumber, '..');
+    const resProgression = [];
 
-  for (let index = 0; index < progLength; index += step) {
-    if (
-      progressionStep === 0 && index === randomIndex && progression[index] === missingNumber
-    ) {
-      resProgression.push(cdr(pair));
-      index += step;
+    const step = 1;
+
+    for (let index = 0; index < progLength; index += step) {
+      if (
+        progressionStep === 0 && index === randomIndex && progression[index] === missingNumber
+      ) {
+        resProgression.push(cdr(pair));
+        index += step;
+      }
+      if (progression[index] === missingNumber && progressionStep !== 0) {
+        resProgression.push(cdr(pair));
+      } else {
+        resProgression.push(progression[index]);
+      }
     }
-    if (progression[index] === missingNumber && progressionStep !== 0) {
-      resProgression.push(cdr(pair));
-    } else {
-      resProgression.push(progression[index]);
-    }
+
+    const progressionToString = resProgression.join(' ');
+
+    const questionToUser = (`Question: ${progressionToString}`);
+
+    const correctAnswer = car(pair);
+
+    const getRound = cons(questionToUser, correctAnswer);
+    getRoundArr.push(getRound);
+
+    countOfRounds += 1;
   }
+  return basicGeneralFunctionality(rules, getRoundArr);
+};
 
-  const progressionToString = resProgression.join(' ');
-
-  questionToUser(`Question: ${progressionToString}`);
-
-  const stringSolution = userAnswer();
-  const solution = userCorrectAnswer(stringSolution);
-
-  const correctAnswer = car(pair);
-
-  const result = isCorrect(solution, correctAnswer, repetitionCounter);
-
-  if (result === false) break;
-}
+export default runBrainProgression;
