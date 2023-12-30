@@ -27,16 +27,12 @@ const runBrainProgression = () => {
     const progLength = arrayOfRandomProgLengths.at(getRandomNumber(minIndexValue, maxIndexValue));
     const randomIndex = getRandomNumber(minIndexValue, progLength);
 
-    const getProgression = (
-      startProgression,
-      progressionStep,
-      progressionLength,
-    ) => {
+    const getProgression = () => {
       const progression = [];
       let number = startProgression;
       const step = 1;
       let cycleCounter = 0;
-      for (cycleCounter; cycleCounter < progressionLength; cycleCounter += step) {
+      for (cycleCounter; cycleCounter < progLength; cycleCounter += step) {
         number += progressionStep;
         progression.push(number);
       }
@@ -44,11 +40,7 @@ const runBrainProgression = () => {
       return progression;
     };
 
-    const progression = getProgression(
-      startProgression,
-      progressionStep,
-      progLength,
-    );
+    const progression = getProgression();
 
     const missingNumber = progression.at(randomIndex);
     const pair = cons(missingNumber, '..');
