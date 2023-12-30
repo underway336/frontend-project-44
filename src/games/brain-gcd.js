@@ -2,7 +2,7 @@ import { cons } from '@hexlet/pairs';
 import { basicGeneralFunctionality } from '../index.js';
 import getRandomNumber from '../utils.js';
 
-const runGcd = () => {
+const runBrainGcd = () => {
   const rules = 'Find the greatest common divisor of given numbers.';
 
   const minValue = 1;
@@ -42,4 +42,4 @@ const runGcd = () => {
   return basicGeneralFunctionality(rules, getRoundArr);
 };
 
-export default runGcd;
+export default runBrainGcd;
