@@ -1,5 +1,6 @@
 import { car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
+import { checkNaN } from './utils.js';
 
 export const basicGeneralFunctionality = (rules, getRoundArr) => {
   console.log('Welcome to the Brain Games!');
@@ -13,7 +14,7 @@ export const basicGeneralFunctionality = (rules, getRoundArr) => {
   for (countOfRounds; countOfRounds < 3; countOfRounds += 1) {
     console.log(car(getRoundArr[countOfRounds]));
 
-    const userAnswer = readlineSync.question('Your answer: ');
+    const userAnswer = checkNaN(readlineSync.question('Your answer: '));
 
     const correctAnswer = cdr(getRoundArr[countOfRounds]);
 
@@ -65,7 +66,7 @@ export default basicGeneralFunctionality;
 //   return progression;
 // };
 
-// export const userCorrectAnswer = (stringSolution) => {
+// export const checkNaN = (stringSolution) => {
 //   let solution = Number(stringSolution);
 
 //   if (Number.isNaN(solution) === true) {
