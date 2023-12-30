@@ -2,7 +2,7 @@ import { cons } from '@hexlet/pairs';
 import { basicGeneralFunctionality } from '../index.js';
 import getRandomNumber from '../utils.js';
 
-const runCalc = () => {
+const runBrainCalc = () => {
   const rules = 'What is the result of the expression?';
 
   const minValue = 0;
@@ -47,4 +47,4 @@ const runCalc = () => {
   return basicGeneralFunctionality(rules, getRoundArr);
 };
 
-export default runCalc;
+export default runBrainCalc;
