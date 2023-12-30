@@ -34,23 +34,6 @@ export const basicGeneralFunctionality = (rules, getRoundArr) => {
 
 export default basicGeneralFunctionality;
 
-// export const getProgression = (
-//   startProgression,
-//   progressionStep,
-//   progressionLength,
-// ) => {
-//   const progression = [];
-//   let number = startProgression;
-//   const step = 1;
-//   let cycleCounter = 0;
-//   for (cycleCounter; cycleCounter < progressionLength; cycleCounter += step) {
-//     number += progressionStep;
-//     progression.push(number);
-//   }
-
-//   return progression;
-// };
-
 // export const isPrimeNumber = (displayNumber) => {
 //   const minimumPrimeNumber = 2;
 //   if (displayNumber < minimumPrimeNumber) {
