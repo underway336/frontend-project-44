@@ -1,36 +1,45 @@
-import {
-  greeting,
-  rulesOfTheGame,
-  getRandomNumber,
-  questionToUser,
-  getGcd,
-  userAnswer,
-  userCorrectAnswer,
-  numberOfRepetitions,
-  stepSize,
-  isCorrect,
-} from '../index.js';
+import { cons } from '@hexlet/pairs';
+import { basicGeneralFunctionality } from '../index.js';
+import getRandomNumber from '../utils.js';
 
-greeting();
+const runGcd = () => {
+  const rules = 'Find the greatest common divisor of given numbers.';
 
-rulesOfTheGame('Find the greatest common divisor of given numbers.');
-
-let repetitionCounter = 0;
-
-for (repetitionCounter; repetitionCounter < numberOfRepetitions; repetitionCounter += stepSize) {
   const minValue = 1;
   const maxValue = 100;
-  const number1 = getRandomNumber(minValue, maxValue);
-  const number2 = getRandomNumber(minValue, maxValue);
 
-  questionToUser(`Question: ${number1} ${number2}`);
+  const getRoundArr = [];
 
-  const stringSolution = userAnswer();
-  const solution = userCorrectAnswer(stringSolution);
+  let countOfRounds = 0;
+  while (countOfRounds !== 3) {
+    const number1 = getRandomNumber(minValue, maxValue);
+    const number2 = getRandomNumber(minValue, maxValue);
 
-  const correctAnswer = getGcd(number1, number2);
+    const questionToUser = (`Question: ${number1} ${number2}`);
 
-  const result = isCorrect(solution, correctAnswer, repetitionCounter);
+    const getGcd = () => {
+      let res = 0;
+      let max = Math.max(number1, number2);
+      let min = Math.min(number1, number2);
+      let remainder;
 
-  if (result === false) break;
-}
+      while (remainder !== 0) {
+        remainder = max % min;
+        max = min;
+        min = remainder;
+        res = max;
+      }
+      return res;
+    };
+
+    const correctAnswer = getGcd(number1, number2);
+
+    const getRound = cons(questionToUser, correctAnswer);
+    getRoundArr.push(getRound);
+
+    countOfRounds += 1;
+  }
+  return basicGeneralFunctionality(rules, getRoundArr);
+};
+
+export default runGcd;
