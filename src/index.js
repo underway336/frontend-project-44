@@ -34,21 +34,6 @@ export const basicGeneralFunctionality = (rules, getRoundArr) => {
 
 export default basicGeneralFunctionality;
 
-// export const getGcd = (number1, number2) => {
-//   let res = 0;
-//   let maxValue = Math.max(number1, number2);
-//   let minValue = Math.min(number1, number2);
-//   let remainder;
-
-//   while (remainder !== 0) {
-//     remainder = maxValue % minValue;
-//     maxValue = minValue;
-//     minValue = remainder;
-//     res = maxValue;
-//   }
-//   return res;
-// };
-
 // export const getProgression = (
 //   startProgression,
 //   progressionStep,
@@ -64,16 +49,6 @@ export default basicGeneralFunctionality;
 //   }
 
 //   return progression;
-// };
-
-// export const checkNaN = (stringSolution) => {
-//   let solution = Number(stringSolution);
-
-//   if (Number.isNaN(solution) === true) {
-//     solution = stringSolution;
-//   }
-
-//   return solution;
 // };
 
 // export const isPrimeNumber = (displayNumber) => {
