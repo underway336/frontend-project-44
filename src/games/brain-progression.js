@@ -5,15 +5,15 @@ import getRandomNumber from '../utils.js';
 const runBrainProgression = () => {
   const rules = 'What number is missing in the progression?';
 
-  const progressionMinValue = 0;
+  const progressionMinValue = 1;
   const progressionMaxValue = 50;
 
-  const minSizeProgressionStep = 0;
+  const minSizeProgressionStep = 1;
   const maxSizeProgressionStep = 10;
 
   const arrayOfRandomProgLengths = [5, 6, 7, 8, 9, 10];
 
-  const minIndexValue = 0;
+  const minIndexValue = 1;
   const maxIndexValue = 5;
 
   const getRoundArr = [];
