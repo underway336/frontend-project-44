@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 import { basicGeneralFunctionality } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
 const runBrainPrime = () => {
   const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';

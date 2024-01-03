@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 import { basicGeneralFunctionality } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
 const runBrainCalc = () => {
   const rules = 'What is the result of the expression?';
