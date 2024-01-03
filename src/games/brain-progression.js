@@ -1,17 +1,17 @@
 import { cons, car, cdr } from '@hexlet/pairs';
 import { basicGeneralFunctionality } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { genRandNumbWithZero, getRandomNumber } from '../utils.js';
 
 const runBrainProgression = () => {
   const rules = 'What number is missing in the progression?';
 
-  const progressionMinValue = 1;
+  const progressionMinValue = 2;
   const progressionMaxValue = 50;
 
-  const minSizeProgressionStep = 0;
+  const minSizeProgressionStep = 2;
   const maxSizeProgressionStep = 10;
 
-  const arrayOfRandomProgLengths = [5, 6, 7, 8, 9, 10];
+  const arrOfRandProgLengths = [5, 6, 7, 8, 9, 10];
 
   const minIndexValue = 0;
   const maxIndexValue = 5;
@@ -24,19 +24,17 @@ const runBrainProgression = () => {
 
     const progressionStep = getRandomNumber(minSizeProgressionStep, maxSizeProgressionStep);
 
-    const progLength = arrayOfRandomProgLengths.at(getRandomNumber(minIndexValue, maxIndexValue));
-    const randomIndex = getRandomNumber(minIndexValue, progLength);
+    const progLength = arrOfRandProgLengths.at(genRandNumbWithZero(minIndexValue, maxIndexValue));
+    const randomIndex = genRandNumbWithZero(minIndexValue, progLength);
 
     const getProgression = () => {
       const progression = [];
       let number = startProgression;
       const step = 1;
-      let cycleCounter = 0;
-      for (cycleCounter; cycleCounter < progLength; cycleCounter += step) {
+      for (let cycleCounter = 0; cycleCounter < progLength; cycleCounter += step) {
         number += progressionStep;
         progression.push(number);
       }
-
       return progression;
     };
 
