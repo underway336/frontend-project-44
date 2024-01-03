@@ -15,8 +15,8 @@ const runBrainCalc = () => {
     const number1 = getRandomNumber(minValue, maxValue);
     const number2 = getRandomNumber(minValue, maxValue);
 
-    const symbols = ['+', '-', '*'];
-    const minOperatorIndexValue = 0;
+    const symbols = [0, '+', '-', '*'];
+    const minOperatorIndexValue = 1;
     const maxOperatorIndexValue = 3;
     const operator = symbols.at(getRandomNumber(minOperatorIndexValue, maxOperatorIndexValue));
 
@@ -24,6 +24,7 @@ const runBrainCalc = () => {
 
     let correctAnswer = 0;
 
+    // eslint-disable-next-line default-case
     switch (operator) {
       case '+':
         correctAnswer = number1 + number2;
@@ -34,9 +35,9 @@ const runBrainCalc = () => {
       case '*':
         correctAnswer = number1 * number2;
         break;
-      default:
-        correctAnswer = number1 * number2;
-        break;
+      // default:
+      //   correctAnswer = number1 + number2;
+      //   break;
     }
 
     const getRound = cons(questionToUser, correctAnswer);
