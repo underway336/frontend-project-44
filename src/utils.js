@@ -8,8 +8,11 @@ export const checkNaN = (userAnswer) => {
 };
 
 const getRandomNumber = (minValue, maxValue) => {
-  const randomNumber = Math.floor(Math.random() * (maxValue - minValue)) + minValue;
-  return randomNumber !== 0 ? randomNumber : minValue;
+  let randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+  while (randomNumber === 0) {
+    randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+  }
+  return randomNumber;
 };
 
 export default getRandomNumber;
