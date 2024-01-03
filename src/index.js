@@ -10,8 +10,9 @@ export const basicGeneralFunctionality = (rules, getRoundArr) => {
 
   console.log(rules);
 
-  let countOfRounds = 0;
-  for (countOfRounds; countOfRounds < 3; countOfRounds += 1) {
+  let isCorrect = true;
+
+  for (let countOfRounds = 0; countOfRounds < 3 && isCorrect; countOfRounds += 1) {
     console.log(car(getRoundArr[countOfRounds]));
 
     const userAnswer = checkNaN(readlineSync.question('Your answer: '));
@@ -22,13 +23,14 @@ export const basicGeneralFunctionality = (rules, getRoundArr) => {
       console.log(
         `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`,
       );
-      break;
+      isCorrect = false;
     } else {
       console.log('Correct!');
-      if (countOfRounds === 2) {
-        console.log(`Congratulations, ${userName}!`);
-      }
     }
+  }
+
+  if (isCorrect) {
+    console.log(`Congratulations, ${userName}!`);
   }
 };
 
