@@ -33,12 +33,12 @@ const runBrainProgression = () => {
 
     for (let index = 0; index < progLength; index += 1) {
       if (
-        progressionStep === 0 && index === randomIndex && progression[index] === missingNumber
+        index === randomIndex && progression[index] === missingNumber
       ) {
         resProgression.push(cdr(pair));
         index += 1;
       }
-      if (progression[index] === missingNumber && progressionStep !== 0) {
+      if (progression[index] === missingNumber) {
         resProgression.push(cdr(pair));
       } else {
         resProgression.push(progression[index]);
