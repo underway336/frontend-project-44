@@ -8,8 +8,7 @@ const runBrainProgression = () => {
   const arrOfRandProgLengths = [5, 6, 7, 8, 9, 10];
   const getRoundArr = [];
 
-  let countOfRounds = 0;
-  while (countOfRounds !== 3) {
+  for (let countOfRounds = 0; countOfRounds < 3; countOfRounds += 1) {
     const startProgression = getRandomNumber(2, 50);
     const progressionStep = getRandomNumber(2, 10);
 
@@ -54,8 +53,6 @@ const runBrainProgression = () => {
 
     const getRound = cons(questionToUser, correctAnswer);
     getRoundArr.push(getRound);
-
-    countOfRounds += 1;
   }
   return basicGeneralFunctionality(rules, getRoundArr);
 };
