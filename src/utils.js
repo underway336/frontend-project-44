@@ -12,11 +12,4 @@ const getRandomNumber = (minValue, maxValue) => {
   return randomNumber;
 };
 
-// export const getRandomNumber = (minValue, maxValue) => {
-//   let randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-//   while (randomNumber === 0) {
-//     randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-//   }
-//   return randomNumber;
-// };
 export default getRandomNumber;
