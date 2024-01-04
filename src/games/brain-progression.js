@@ -26,7 +26,7 @@ const runBrainProgression = () => {
       return progression;
     };
 
-    const progression = getProgression();
+    const progression = getProgression(startProgression, progLength, progressionStep);
 
     const missingNumber = progression.at(randomIndex);
     const pair = cons(missingNumber, '..');
