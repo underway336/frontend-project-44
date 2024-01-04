@@ -13,12 +13,12 @@ const runBrainProgression = () => {
     const progressionStep = getRandomNumber(2, 10);
 
     const progLength = arrOfRandProgLengths.at(getRandomNumber(0, 5));
-    const randomIndex = getRandomNumber(0, progLength);
+    const randomIndex = getRandomNumber(0, (progLength - 1));
 
     const getProgression = () => {
-      const progression = [];
       let number = startProgression;
-      for (let cycleCounter = 0; cycleCounter < progLength; cycleCounter += 1) {
+      const progression = [number];
+      for (let cycleCounter = 1; cycleCounter < progLength; cycleCounter += 1) {
         number += progressionStep;
         progression.push(number);
       }
