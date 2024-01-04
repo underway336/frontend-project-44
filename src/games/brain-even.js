@@ -1,6 +1,6 @@
 import { cons } from '@hexlet/pairs';
 import { basicGeneralFunctionality } from '../index.js';
-import { getRandomNumber } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const runBrainEven = () => {
   const rules = 'Answer "yes" if the number is even, otherwise answer "no".';

@@ -1,6 +1,6 @@
 import { cons, car, cdr } from '@hexlet/pairs';
 import { basicGeneralFunctionality } from '../index.js';
-import { getRandomNumber, genRandNumbWithZero } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const runBrainProgression = () => {
   const rules = 'What number is missing in the progression?';
@@ -24,8 +24,8 @@ const runBrainProgression = () => {
 
     const progressionStep = getRandomNumber(minSizeProgressionStep, maxSizeProgressionStep);
 
-    const progLength = arrOfRandProgLengths.at(genRandNumbWithZero(minIndexValue, maxIndexValue));
-    const randomIndex = genRandNumbWithZero(minIndexValue, progLength);
+    const progLength = arrOfRandProgLengths.at(getRandomNumber(minIndexValue, maxIndexValue));
+    const randomIndex = getRandomNumber(minIndexValue, progLength);
 
     const getProgression = () => {
       const progression = [];

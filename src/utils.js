@@ -7,15 +7,16 @@ export const checkNaN = (userAnswer) => {
   return solution;
 };
 
-export const genRandNumbWithZero = (minValue, maxValue) => {
+const getRandomNumber = (minValue, maxValue) => {
   const randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
   return randomNumber;
 };
 
-export const getRandomNumber = (minValue, maxValue) => {
-  let randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-  while (randomNumber === 0) {
-    randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-  }
-  return randomNumber;
-};
+// export const getRandomNumber = (minValue, maxValue) => {
+//   let randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+//   while (randomNumber === 0) {
+//     randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+//   }
+//   return randomNumber;
+// };
+export default getRandomNumber;
