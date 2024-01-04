@@ -10,7 +10,7 @@ const runBrainProgression = () => {
 
   let countOfRounds = 0;
   while (countOfRounds !== 3) {
-    const startProgression = getRandomNumber(0, 50);
+    const startProgression = getRandomNumber(2, 50);
     const progressionStep = getRandomNumber(2, 10);
 
     const progLength = arrOfRandProgLengths.at(getRandomNumber(0, 5));
