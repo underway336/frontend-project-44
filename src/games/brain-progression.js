@@ -5,33 +5,21 @@ import getRandomNumber from '../utils.js';
 const runBrainProgression = () => {
   const rules = 'What number is missing in the progression?';
 
-  const progressionMinValue = 2;
-  const progressionMaxValue = 50;
-
-  const minSizeProgressionStep = 2;
-  const maxSizeProgressionStep = 10;
-
   const arrOfRandProgLengths = [5, 6, 7, 8, 9, 10];
-
-  const minIndexValue = 0;
-  const maxIndexValue = 5;
-
   const getRoundArr = [];
 
   let countOfRounds = 0;
   while (countOfRounds !== 3) {
-    const startProgression = getRandomNumber(progressionMinValue, progressionMaxValue);
+    const startProgression = getRandomNumber(0, 50);
+    const progressionStep = getRandomNumber(2, 10);
 
-    const progressionStep = getRandomNumber(minSizeProgressionStep, maxSizeProgressionStep);
-
-    const progLength = arrOfRandProgLengths.at(getRandomNumber(minIndexValue, maxIndexValue));
-    const randomIndex = getRandomNumber(minIndexValue, progLength);
+    const progLength = arrOfRandProgLengths.at(getRandomNumber(0, 5));
+    const randomIndex = getRandomNumber(0, progLength);
 
     const getProgression = () => {
       const progression = [];
       let number = startProgression;
-      const step = 1;
-      for (let cycleCounter = 0; cycleCounter < progLength; cycleCounter += step) {
+      for (let cycleCounter = 0; cycleCounter < progLength; cycleCounter += 1) {
         number += progressionStep;
         progression.push(number);
       }
@@ -44,14 +32,12 @@ const runBrainProgression = () => {
     const pair = cons(missingNumber, '..');
     const resProgression = [];
 
-    const step = 1;
-
-    for (let index = 0; index < progLength; index += step) {
+    for (let index = 0; index < progLength; index += 1) {
       if (
         progressionStep === 0 && index === randomIndex && progression[index] === missingNumber
       ) {
         resProgression.push(cdr(pair));
-        index += step;
+        index += 1;
       }
       if (progression[index] === missingNumber && progressionStep !== 0) {
         resProgression.push(cdr(pair));
