@@ -21,11 +21,11 @@ const runBrainProgression = () => {
   for (let i = 0; i < roundCount; i += 1) {
     const startProgression = getRandomNumber(2, 50);
     const progressionStep = getRandomNumber(2, 10);
-    const progLength = arrOfRandProgLengths.at(getRandomNumber(0, 5));
+    const progLength = arrOfRandProgLengths[getRandomNumber(0, 5)];
     const randomIndex = getRandomNumber(0, (progLength - 1));
 
     const progression = getProgression(startProgression, progLength, progressionStep);
-    const missingNumber = progression.at(randomIndex);
+    const missingNumber = progression[randomIndex];
     const pair = cons(missingNumber, '..');
     const resProgression = [];
 
@@ -44,7 +44,7 @@ const runBrainProgression = () => {
     }
 
     const progressionToString = resProgression.join(' ');
-    const questionToUser = (`Question: ${progressionToString}`);
+    const questionToUser = `Question: ${progressionToString}`;
     const correctAnswer = car(pair);
 
     const getRound = cons(questionToUser, correctAnswer);
