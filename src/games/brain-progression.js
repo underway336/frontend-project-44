@@ -33,8 +33,7 @@ const runBrainProgression = () => {
       ) {
         resProgression.push(cdr(pair));
         index += 1;
-      }
-      if (progression[index] === missingNumber) {
+      } else if (progression[index] === missingNumber) {
         resProgression.push(cdr(pair));
       } else {
         resProgression.push(progression[index]);
