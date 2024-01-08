@@ -19,7 +19,7 @@ const runBrainProgression = () => {
   for (let i = 0; i < roundCount; i += 1) {
     const startProgression = getRandomNumber(2, 50);
     const progressionStep = getRandomNumber(2, 10);
-    const progLength = getRandomNumber(6, 10);
+    const progLength = getRandomNumber(5, 10);
     const progression = getProgression(startProgression, progLength, progressionStep);
 
     const randomIndex = getRandomNumber(0, (progLength - 1));
@@ -33,7 +33,8 @@ const runBrainProgression = () => {
       ) {
         resProgression.push(cdr(pair));
         index += 1;
-      } else if (progression[index] === missingNumber) {
+      }
+      if (progression[index] === missingNumber) {
         resProgression.push(cdr(pair));
       } else {
         resProgression.push(progression[index]);
