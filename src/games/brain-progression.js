@@ -3,10 +3,9 @@ import { basicGeneralFunctionality } from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const getProgression = (startProgression, progLength, progressionStep) => {
-  let number = startProgression;
-  const progression = [number];
-  for (let cycleCounter = 1; cycleCounter < progLength; cycleCounter += 1) {
-    number += progressionStep;
+  const progression = [];
+  for (let i = 0; i < progLength; i += 1) {
+    const number = startProgression + progressionStep * i;
     progression.push(number);
   }
   return progression;
