@@ -1,6 +1,5 @@
-import { cons } from '@hexlet/pairs';
 import { basicGeneralFunctionality } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber, getRound, roundCount } from '../utils.js';
 
 const isPrimeNumber = (displayNumber) => {
   const minimumPrimeNumber = 2;
@@ -18,14 +17,13 @@ const isPrimeNumber = (displayNumber) => {
 
 const runBrainPrime = () => {
   const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const roundCount = 3;
-  const getRound = [];
+  const roundsArray = [];
 
   for (let i = 0; i < roundCount; i += 1) {
     const displayNumber = getRandomNumber(2, 100);
-    getRound.push(cons(`Question: ${displayNumber}`, isPrimeNumber(displayNumber)));
+    roundsArray.push(getRound(`Question: ${displayNumber}`, isPrimeNumber(displayNumber)));
   }
-  return basicGeneralFunctionality(rules, getRound);
+  return basicGeneralFunctionality(rules, roundsArray);
 };
 
 export default runBrainPrime;
