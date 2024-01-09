@@ -2,32 +2,21 @@ import { cons } from '@hexlet/pairs';
 import { basicGeneralFunctionality } from '../index.js';
 import getRandomNumber from '../utils.js';
 
+const isEven = (displayNumber) => {
+  const result = displayNumber % 2 === 0 ? 'yes' : 'no';
+  return result;
+};
+
 const runBrainEven = () => {
   const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const roundCount = 3;
+  const getRound = [];
 
-  const minValue = 2;
-  const maxValue = 100;
-
-  const getRoundArr = [];
-
-  let countOfRounds = 0;
-  while (countOfRounds !== 3) {
-    const displayNumber = getRandomNumber(minValue, maxValue);
-    const questionToUser = (`Question: ${displayNumber}`);
-
-    const isEven = () => {
-      const result = displayNumber % 2 === 0 ? 'yes' : 'no';
-      return result;
-    };
-
-    const correctAnswer = isEven();
-    const getRound = cons(questionToUser, correctAnswer);
-
-    getRoundArr.push(getRound);
-
-    countOfRounds += 1;
+  for (let i = 0; i < roundCount; i += 1) {
+    const displayNumber = getRandomNumber(2, 100);
+    getRound.push(cons(`Question: ${displayNumber}`, isEven(displayNumber)));
   }
-  return basicGeneralFunctionality(rules, getRoundArr);
+  return basicGeneralFunctionality(rules, getRound);
 };
 
 export default runBrainEven;
