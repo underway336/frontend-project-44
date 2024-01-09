@@ -24,10 +24,7 @@ export const basicGeneralFunctionality = (rules, roundsArray) => {
       );
     }
   }
-
-  if (roundCount) {
-    console.log(`Congratulations, ${userName}!`);
-  }
+  return console.log(`Congratulations, ${userName}!`);
 };
 
 export default basicGeneralFunctionality;
