@@ -4,16 +4,11 @@ import getRandomNumber from '../utils.js';
 
 const runBrainPrime = () => {
   const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const roundCount = 3;
+  const getRound = [];
 
-  const minValue = 2;
-  const maxValue = 100;
-
-  const getRoundArr = [];
-
-  let countOfRounds = 0;
-  while (countOfRounds !== 3) {
-    const displayNumber = getRandomNumber(minValue, maxValue);
-    const questionToUser = (`Question: ${displayNumber}`);
+  for (let i = 0; i < roundCount; i += 1) {
+    const displayNumber = getRandomNumber(2, 100);
 
     const isPrimeNumber = () => {
       const minimumPrimeNumber = 2;
@@ -30,13 +25,9 @@ const runBrainPrime = () => {
     };
 
     const correctAnswer = isPrimeNumber();
-
-    const getRound = cons(questionToUser, correctAnswer);
-    getRoundArr.push(getRound);
-
-    countOfRounds += 1;
+    getRound.push(cons(`Question: ${displayNumber}`, correctAnswer));
   }
-  return basicGeneralFunctionality(rules, getRoundArr);
+  return basicGeneralFunctionality(rules, getRound);
 };
 
 export default runBrainPrime;
