@@ -33,9 +33,7 @@ const runBrainProgression = () => {
         resultProgression.push(progression[index]);
       }
     }
-    const questionToUser = `Question: ${resultProgression.join(' ')}`;
-    const correctAnswer = car(missingNumber);
-    getRound.push(cons(questionToUser, correctAnswer));
+    getRound.push(cons(`Question: ${resultProgression.join(' ')}`, car(missingNumber)));
   }
   return basicGeneralFunctionality(rules, getRound);
 };
