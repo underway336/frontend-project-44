@@ -1,6 +1,5 @@
-import { cons } from '@hexlet/pairs';
 import { basicGeneralFunctionality } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber, getRound, roundCount } from '../utils.js';
 
 const getGcd = (number1, number2) => {
   let res = 0;
@@ -19,15 +18,14 @@ const getGcd = (number1, number2) => {
 
 const runBrainGcd = () => {
   const rules = 'Find the greatest common divisor of given numbers.';
-  const roundCount = 3;
-  const getRound = [];
+  const roundsArray = [];
 
   for (let i = 0; i < roundCount; i += 1) {
     const number1 = getRandomNumber(1, 100);
     const number2 = getRandomNumber(1, 100);
-    getRound.push(cons(`Question: ${number1} ${number2}`, getGcd(number1, number2)));
+    roundsArray.push(getRound(`Question: ${number1} ${number2}`, getGcd(number1, number2)));
   }
-  return basicGeneralFunctionality(rules, getRound);
+  return basicGeneralFunctionality(rules, roundsArray);
 };
 
 export default runBrainGcd;
