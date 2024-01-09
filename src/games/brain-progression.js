@@ -23,25 +23,24 @@ const runBrainProgression = () => {
     const progression = getProgression(startProgression, progLength, progressionStep);
 
     const randomIndex = getRandomNumber(0, (progLength - 1));
-    const missingNumber = progression[randomIndex];
-    const pair = cons(missingNumber, '..');
+    const missingNumber = cons(progression[randomIndex], '..');
     const resultProgression = [];
 
     for (let index = 0; index < progLength; index += 1) {
       if (
-        index === randomIndex && progression[index] === missingNumber
+        index === randomIndex && progression[index] === progression[randomIndex]
       ) {
-        resultProgression.push(cdr(pair));
+        resultProgression.push(cdr(missingNumber));
         index += 1;
       }
-      if (progression[index] === missingNumber) {
-        resultProgression.push(cdr(pair));
+      if (progression[index] === progression[randomIndex]) {
+        resultProgression.push(cdr(missingNumber));
       } else {
         resultProgression.push(progression[index]);
       }
     }
     const questionToUser = `Question: ${resultProgression.join(' ')}`;
-    const correctAnswer = car(pair);
+    const correctAnswer = car(missingNumber);
     getRound.push(cons(questionToUser, correctAnswer));
   }
   return basicGeneralFunctionality(rules, getRound);
