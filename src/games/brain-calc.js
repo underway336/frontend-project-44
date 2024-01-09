@@ -4,26 +4,17 @@ import getRandomNumber from '../utils.js';
 
 const runBrainCalc = () => {
   const rules = 'What is the result of the expression?';
+  const roundCount = 3;
+  const getRound = [];
 
-  const minValue = 0;
-  const maxValue = 25;
+  for (let i = 0; i < roundCount; i += 1) {
+    const number1 = getRandomNumber(0, 25);
+    const number2 = getRandomNumber(0, 25);
 
-  const getRoundArr = [];
-
-  let countOfRounds = 0;
-  while (countOfRounds !== 3) {
-    const number1 = getRandomNumber(minValue, maxValue);
-    const number2 = getRandomNumber(minValue, maxValue);
-
-    const symbols = [0, '+', '-', '*'];
-    const minOperatorIndexValue = 1;
-    const maxOperatorIndexValue = 3;
-    const operator = symbols.at(getRandomNumber(minOperatorIndexValue, maxOperatorIndexValue));
-
-    const questionToUser = (`Question: ${number1} ${operator} ${number2}`);
+    const symbols = ['+', '-', '*'];
+    const operator = symbols[getRandomNumber(0, 2)];
 
     let correctAnswer = 0;
-
     // eslint-disable-next-line default-case
     switch (operator) {
       case '+':
@@ -35,17 +26,10 @@ const runBrainCalc = () => {
       case '*':
         correctAnswer = number1 * number2;
         break;
-      // default:
-      //   correctAnswer = number1 + number2;
-      //   break;
     }
-
-    const getRound = cons(questionToUser, correctAnswer);
-    getRoundArr.push(getRound);
-
-    countOfRounds += 1;
+    getRound.push(cons(`Question: ${number1} ${operator} ${number2}`, correctAnswer));
   }
-  return basicGeneralFunctionality(rules, getRoundArr);
+  return basicGeneralFunctionality(rules, getRound);
 };
 
 export default runBrainCalc;
