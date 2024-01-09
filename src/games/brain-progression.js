@@ -14,7 +14,7 @@ const getProgression = (startProgression, progLength, progressionStep) => {
 const runBrainProgression = () => {
   const rules = 'What number is missing in the progression?';
   const roundCount = 3;
-  const getRoundArr = [];
+  const getRound = [];
 
   for (let i = 0; i < roundCount; i += 1) {
     const startProgression = getRandomNumber(2, 50);
@@ -25,30 +25,26 @@ const runBrainProgression = () => {
     const randomIndex = getRandomNumber(0, (progLength - 1));
     const missingNumber = progression[randomIndex];
     const pair = cons(missingNumber, '..');
-    const resProgression = [];
+    const resultProgression = [];
 
     for (let index = 0; index < progLength; index += 1) {
       if (
         index === randomIndex && progression[index] === missingNumber
       ) {
-        resProgression.push(cdr(pair));
+        resultProgression.push(cdr(pair));
         index += 1;
       }
       if (progression[index] === missingNumber) {
-        resProgression.push(cdr(pair));
+        resultProgression.push(cdr(pair));
       } else {
-        resProgression.push(progression[index]);
+        resultProgression.push(progression[index]);
       }
     }
-
-    const progressionToString = resProgression.join(' ');
-    const questionToUser = `Question: ${progressionToString}`;
+    const questionToUser = `Question: ${resultProgression.join(' ')}`;
     const correctAnswer = car(pair);
-
-    const getRound = cons(questionToUser, correctAnswer);
-    getRoundArr.push(getRound);
+    getRound.push(cons(questionToUser, correctAnswer));
   }
-  return basicGeneralFunctionality(rules, getRoundArr);
+  return basicGeneralFunctionality(rules, getRound);
 };
 
 export default runBrainProgression;
