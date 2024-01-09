@@ -27,12 +27,12 @@ const runBrainProgression = () => {
     const resultProgression = [];
 
     for (let index = 0; index < progLength; index += 1) {
-      if (
-        index === randomIndex && progression[index] === progression[randomIndex]
-      ) {
-        resultProgression.push(cdr(missingNumber));
-        index += 1;
-      }
+      // if (
+      //   index === randomIndex && progression[index] === progression[randomIndex]
+      // ) {
+      //   resultProgression.push(cdr(missingNumber));
+      //   index += 1;
+      // }
       if (progression[index] === progression[randomIndex]) {
         resultProgression.push(cdr(missingNumber));
       } else {
