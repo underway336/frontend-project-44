@@ -1,3 +1,5 @@
+import { cons } from '@hexlet/pairs';
+
 export const checkNaN = (userAnswer) => {
   let solution = Number(userAnswer);
 
@@ -7,9 +9,14 @@ export const checkNaN = (userAnswer) => {
   return solution;
 };
 
-const getRandomNumber = (minValue, maxValue) => {
+export const getRandomNumber = (minValue, maxValue) => {
   const randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
   return randomNumber;
 };
 
-export default getRandomNumber;
+export const getRound = (question, correctAnswer) => {
+  const round = cons(question, correctAnswer);
+  return round;
+};
+
+export const roundCount = 3;
