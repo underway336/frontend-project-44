@@ -1,11 +1,9 @@
-import { cons } from '@hexlet/pairs';
 import { basicGeneralFunctionality } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { getRandomNumber, getRound, roundCount } from '../utils.js';
 
 const runBrainCalc = () => {
   const rules = 'What is the result of the expression?';
-  const roundCount = 3;
-  const getRound = [];
+  const roundsArray = [];
 
   for (let i = 0; i < roundCount; i += 1) {
     const number1 = getRandomNumber(0, 25);
@@ -27,9 +25,9 @@ const runBrainCalc = () => {
         correctAnswer = number1 * number2;
         break;
     }
-    getRound.push(cons(`Question: ${number1} ${operator} ${number2}`, correctAnswer));
+    roundsArray.push(getRound(`Question: ${number1} ${operator} ${number2}`, correctAnswer));
   }
-  return basicGeneralFunctionality(rules, getRound);
+  return basicGeneralFunctionality(rules, roundsArray);
 };
 
 export default runBrainCalc;
