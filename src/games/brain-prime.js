@@ -23,7 +23,7 @@ const runBrainPrime = () => {
 
   for (let i = 0; i < roundCount; i += 1) {
     const displayNumber = getRandomNumber(2, 100);
-    getRound.push(cons(`Question: ${displayNumber}`, isPrimeNumber()));
+    getRound.push(cons(`Question: ${displayNumber}`, isPrimeNumber(displayNumber)));
   }
   return basicGeneralFunctionality(rules, getRound);
 };
