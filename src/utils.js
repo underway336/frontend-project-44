@@ -20,3 +20,12 @@ export const getRound = (question, correctAnswer) => {
 };
 
 export const roundCount = 3;
+
+export const runBrainGame = (questionCallback) => {
+  const roundsArray = [];
+  for (let i = 0; i < roundCount; i += 1) {
+    const displayNumber = getRandomNumber(2, 100);
+    roundsArray.push(getRound(`Question: ${displayNumber}`, questionCallback(displayNumber)));
+  }
+  return roundsArray;
+};
