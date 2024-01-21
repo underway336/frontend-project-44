@@ -2,7 +2,7 @@ import { car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
 import { checkNaN, roundCount } from './utils.js';
 
-export const basicGeneralFunctionality = (rules, roundsArray) => {
+export const runGame = (rules, roundsArray) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
@@ -25,4 +25,4 @@ export const basicGeneralFunctionality = (rules, roundsArray) => {
   return console.log(`Congratulations, ${userName}!`);
 };
 
-export default basicGeneralFunctionality;
+export default runGame;

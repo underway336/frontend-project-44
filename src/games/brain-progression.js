@@ -1,5 +1,5 @@
 import { cons, car, cdr } from '@hexlet/pairs';
-import { basicGeneralFunctionality } from '../index.js';
+import { runGame } from '../index.js';
 import { getRandomNumber, getRound, roundCount } from '../utils.js';
 
 const getProgression = (start, length, step) => {
@@ -41,7 +41,7 @@ const runBrainProgression = () => {
     const resultProgression = replaceMissingNumber(progression, missingNumber);
     roundsArray.push(getRound(`Question: ${resultProgression.join(' ')}`, car(missingNumber)));
   }
-  return basicGeneralFunctionality(rules, roundsArray);
+  return runGame(rules, roundsArray);
 };
 
 export default runBrainProgression;

@@ -1,4 +1,4 @@
-import { basicGeneralFunctionality } from '../index.js';
+import { runGame } from '../index.js';
 import { getRandomNumber, getRound, roundCount } from '../utils.js';
 
 const getGcd = (number1, number2) => {
@@ -25,7 +25,7 @@ const runBrainGcd = () => {
     const number2 = getRandomNumber(1, 100);
     roundsArray.push(getRound(`Question: ${number1} ${number2}`, getGcd(number1, number2)));
   }
-  return basicGeneralFunctionality(rules, roundsArray);
+  return runGame(rules, roundsArray);
 };
 
 export default runBrainGcd;

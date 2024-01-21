@@ -1,4 +1,4 @@
-import { basicGeneralFunctionality } from '../index.js';
+import { runGame } from '../index.js';
 import { getRandomNumber, getRound, roundCount } from '../utils.js';
 
 const runBrainCalc = () => {
@@ -27,7 +27,7 @@ const runBrainCalc = () => {
     }
     roundsArray.push(getRound(`Question: ${number1} ${operator} ${number2}`, correctAnswer));
   }
-  return basicGeneralFunctionality(rules, roundsArray);
+  return runGame(rules, roundsArray);
 };
 
 export default runBrainCalc;
