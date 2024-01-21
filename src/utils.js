@@ -1,4 +1,5 @@
 import { cons } from '@hexlet/pairs';
+import { roundsCount } from '../index.js';
 
 export const checkNaN = (userAnswer) => {
   let solution = Number(userAnswer);
@@ -19,11 +20,9 @@ export const getRound = (question, correctAnswer) => {
   return round;
 };
 
-export const roundCount = 3;
-
 export const runBrainGame = (questionCallback) => {
   const rounds = [];
-  for (let i = 0; i < roundCount; i += 1) {
+  for (let i = 0; i < roundsCount; i += 1) {
     const displayNumber = getRandomNumber(2, 100);
     rounds.push(getRound(`Question: ${displayNumber}`, questionCallback(displayNumber)));
   }

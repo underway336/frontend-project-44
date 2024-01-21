@@ -1,14 +1,14 @@
 import { car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
-import { checkNaN, roundCount } from './utils.js';
+import { checkNaN } from './utils.js';
 
+export const roundsCount = 3;
 export const runGame = (rules, rounds) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log(rules);
-
-  for (let i = 0; i < roundCount; i += 1) {
+  for (let i = 0; i < roundsCount; i += 1) {
     console.log(car(rounds[i]));
 
     const userAnswer = checkNaN(readlineSync.question('Your answer: '));

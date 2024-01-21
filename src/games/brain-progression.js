@@ -1,6 +1,6 @@
 import { cons, car, cdr } from '@hexlet/pairs';
-import { runGame } from '../index.js';
-import { getRandomNumber, getRound, roundCount } from '../utils.js';
+import { runGame, roundsCount } from '../index.js';
+import { getRandomNumber, getRound } from '../utils.js';
 
 const getProgression = (start, length, step) => {
   const progression = [];
@@ -30,7 +30,7 @@ const runBrainProgression = () => {
   const rules = 'What number is missing in the progression?';
   const rounds = [];
 
-  for (let i = 0; i < roundCount; i += 1) {
+  for (let i = 0; i < roundsCount; i += 1) {
     const start = getRandomNumber(2, 50);
     const step = getRandomNumber(2, 10);
     const length = getRandomNumber(5, 10);

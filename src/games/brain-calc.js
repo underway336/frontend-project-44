@@ -1,11 +1,11 @@
-import { runGame } from '../index.js';
-import { getRandomNumber, getRound, roundCount } from '../utils.js';
+import { runGame, roundsCount } from '../index.js';
+import { getRandomNumber, getRound } from '../utils.js';
 
 const runBrainCalc = () => {
   const rules = 'What is the result of the expression?';
   const rounds = [];
 
-  for (let i = 0; i < roundCount; i += 1) {
+  for (let i = 0; i < roundsCount; i += 1) {
     const number1 = getRandomNumber(0, 25);
     const number2 = getRandomNumber(0, 25);
 
