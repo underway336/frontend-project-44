@@ -1,4 +1,4 @@
-import { runGame } from '../index.js';
+import { roundsCount, runGame } from '../index.js';
 import { runBrainGame } from '../utils.js';
 
 const isPrimeNumber = (displayNumber) => {
@@ -17,7 +17,7 @@ const isPrimeNumber = (displayNumber) => {
 
 const runBrainPrime = () => {
   const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  return runGame(rules, runBrainGame(isPrimeNumber));
+  return runGame(rules, runBrainGame(isPrimeNumber, roundsCount));
 };
 
 export default runBrainPrime;

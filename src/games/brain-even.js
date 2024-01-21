@@ -1,4 +1,4 @@
-import { runGame } from '../index.js';
+import { roundsCount, runGame } from '../index.js';
 import { runBrainGame } from '../utils.js';
 
 const isEven = (displayNumber) => {
@@ -8,7 +8,7 @@ const isEven = (displayNumber) => {
 
 const runBrainEven = () => {
   const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-  return runGame(rules, runBrainGame(isEven));
+  return runGame(rules, runBrainGame(isEven, roundsCount));
 };
 
 export default runBrainEven;
