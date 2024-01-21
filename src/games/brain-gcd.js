@@ -18,14 +18,14 @@ const getGcd = (number1, number2) => {
 
 const runBrainGcd = () => {
   const rules = 'Find the greatest common divisor of given numbers.';
-  const roundsArray = [];
+  const rounds = [];
 
   for (let i = 0; i < roundCount; i += 1) {
     const number1 = getRandomNumber(1, 100);
     const number2 = getRandomNumber(1, 100);
-    roundsArray.push(getRound(`Question: ${number1} ${number2}`, getGcd(number1, number2)));
+    rounds.push(getRound(`Question: ${number1} ${number2}`, getGcd(number1, number2)));
   }
-  return runGame(rules, roundsArray);
+  return runGame(rules, rounds);
 };
 
 export default runBrainGcd;

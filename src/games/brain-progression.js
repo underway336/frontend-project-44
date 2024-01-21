@@ -28,7 +28,7 @@ const replaceMissingNumber = (progression, missingNumber) => {
 
 const runBrainProgression = () => {
   const rules = 'What number is missing in the progression?';
-  const roundsArray = [];
+  const rounds = [];
 
   for (let i = 0; i < roundCount; i += 1) {
     const start = getRandomNumber(2, 50);
@@ -39,9 +39,9 @@ const runBrainProgression = () => {
     const randomIndex = getRandomNumber(0, (length - 1));
     const missingNumber = getMissingNumber(progression, randomIndex);
     const resultProgression = replaceMissingNumber(progression, missingNumber);
-    roundsArray.push(getRound(`Question: ${resultProgression.join(' ')}`, car(missingNumber)));
+    rounds.push(getRound(`Question: ${resultProgression.join(' ')}`, car(missingNumber)));
   }
-  return runGame(rules, roundsArray);
+  return runGame(rules, rounds);
 };
 
 export default runBrainProgression;

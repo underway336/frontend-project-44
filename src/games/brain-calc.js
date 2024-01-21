@@ -3,7 +3,7 @@ import { getRandomNumber, getRound, roundCount } from '../utils.js';
 
 const runBrainCalc = () => {
   const rules = 'What is the result of the expression?';
-  const roundsArray = [];
+  const rounds = [];
 
   for (let i = 0; i < roundCount; i += 1) {
     const number1 = getRandomNumber(0, 25);
@@ -25,9 +25,9 @@ const runBrainCalc = () => {
         correctAnswer = number1 * number2;
         break;
     }
-    roundsArray.push(getRound(`Question: ${number1} ${operator} ${number2}`, correctAnswer));
+    rounds.push(getRound(`Question: ${number1} ${operator} ${number2}`, correctAnswer));
   }
-  return runGame(rules, roundsArray);
+  return runGame(rules, rounds);
 };
 
 export default runBrainCalc;
