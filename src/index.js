@@ -15,10 +15,10 @@ export const runGame = (rules, rounds) => {
 
     if (userAnswer === correctAnswer) {
       console.log('Correct!');
-    } else {
-      return console.log(
-        `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`,
-      );
+    }
+    if (userAnswer !== correctAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      return console.log(`Let's try again, ${userName}!`);
     }
   }
   return console.log(`Congratulations, ${userName}!`);
