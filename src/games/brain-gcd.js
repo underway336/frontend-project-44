@@ -1,5 +1,6 @@
+import { cons } from '@hexlet/pairs';
 import { runGame, roundsCount } from '../index.js';
-import { getRandomNumber, getRound } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const getGcd = (number1, number2) => {
   let res = 0;
@@ -23,7 +24,7 @@ const runBrainGcd = () => {
   for (let i = 0; i < roundsCount; i += 1) {
     const number1 = getRandomNumber(1, 100);
     const number2 = getRandomNumber(1, 100);
-    rounds.push(getRound(`Question: ${number1} ${number2}`, getGcd(number1, number2)));
+    rounds.push(cons(`Question: ${number1} ${number2}`, getGcd(number1, number2)));
   }
   return runGame(rules, rounds);
 };

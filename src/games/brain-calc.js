@@ -1,5 +1,6 @@
+import { cons } from '@hexlet/pairs';
 import { runGame, roundsCount } from '../index.js';
-import { getRandomNumber, getRound } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const runBrainCalc = () => {
   const rules = 'What is the result of the expression?';
@@ -25,7 +26,7 @@ const runBrainCalc = () => {
         correctAnswer = number1 * number2;
         break;
     }
-    rounds.push(getRound(`Question: ${number1} ${operator} ${number2}`, correctAnswer));
+    rounds.push(cons(`Question: ${number1} ${operator} ${number2}`, correctAnswer));
   }
   return runGame(rules, rounds);
 };
