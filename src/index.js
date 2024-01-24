@@ -1,6 +1,5 @@
 import { car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
-import { checkNaN } from './utils.js';
 
 export const roundsCount = 3;
 export const runGame = (rules, rounds) => {
@@ -11,8 +10,8 @@ export const runGame = (rules, rounds) => {
   for (let i = 0; i < roundsCount; i += 1) {
     console.log(car(rounds[i]));
 
-    const userAnswer = checkNaN(readlineSync.question('Your answer: '));
-    const correctAnswer = cdr(rounds[i]);
+    const userAnswer = readlineSync.question('Your answer: ');
+    const correctAnswer = cdr(rounds[i]).toString();
 
     if (userAnswer === correctAnswer) {
       console.log('Correct!');
