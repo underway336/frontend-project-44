@@ -2,6 +2,7 @@ import { car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
 
 export const roundsCount = 3;
+
 export const runGame = (rules, rounds) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
