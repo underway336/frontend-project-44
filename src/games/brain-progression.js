@@ -1,6 +1,6 @@
 import { cons, car, cdr } from '@hexlet/pairs';
-import { runGame, roundsCount } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { runGame } from '../index.js';
+import { getRandomNumber, generateRounds } from '../utils.js';
 
 const getProgression = (start, length, step) => {
   const progression = [];
@@ -26,21 +26,23 @@ const replaceMissingNumber = (progression, missingNumber) => {
   return resultProgression;
 };
 
+const getRound = () => {
+  const start = getRandomNumber(2, 50);
+  const step = getRandomNumber(2, 10);
+  const length = getRandomNumber(5, 10);
+  const progression = getProgression(start, length, step);
+
+  const randomIndex = getRandomNumber(0, (length - 1));
+  const missingNumber = getMissingNumber(progression, randomIndex);
+  const resultProgression = replaceMissingNumber(progression, missingNumber);
+  const correctAnswer = car(missingNumber);
+
+  return [`Question: ${resultProgression.join(' ')}`, correctAnswer];
+};
+
 const runBrainProgression = () => {
   const rules = 'What number is missing in the progression?';
-  const rounds = [];
-
-  for (let i = 0; i < roundsCount; i += 1) {
-    const start = getRandomNumber(2, 50);
-    const step = getRandomNumber(2, 10);
-    const length = getRandomNumber(5, 10);
-    const progression = getProgression(start, length, step);
-
-    const randomIndex = getRandomNumber(0, (length - 1));
-    const missingNumber = getMissingNumber(progression, randomIndex);
-    const resultProgression = replaceMissingNumber(progression, missingNumber);
-    rounds.push(cons(`Question: ${resultProgression.join(' ')}`, car(missingNumber)));
-  }
+  const rounds = generateRounds(getRound);
   return runGame(rules, rounds);
 };
 
