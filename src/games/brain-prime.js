@@ -1,5 +1,7 @@
 import { runGame } from '../index.js';
-import { getRandomNumber, generateRounds } from '../utils.js';
+import getRandomNumber from '../utils.js';
+
+const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrimeNumber = (displayNumber) => {
   const minimumPrimeNumber = 2;
@@ -18,13 +20,11 @@ const isPrimeNumber = (displayNumber) => {
 const getRound = () => {
   const displayNumber = getRandomNumber(2, 100);
 
-  return [`Question: ${displayNumber}`, isPrimeNumber(displayNumber)];
+  const question = displayNumber.toString();
+  const answer = isPrimeNumber(displayNumber);
+  return [question, answer];
 };
 
-const runBrainPrime = () => {
-  const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const rounds = generateRounds(getRound);
-  return runGame(rules, rounds);
-};
+const runBrainPrime = () => runGame(rules, getRound);
 
 export default runBrainPrime;
