@@ -1,2 +1,3 @@
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-export default getRandomNumber;
+export const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+export const getRandomIndex = (col) => col[getRandomNumber(0, col.length - 1)];
