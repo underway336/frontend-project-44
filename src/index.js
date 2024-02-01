@@ -8,12 +8,10 @@ export const runGame = (rules, getRound) => {
   console.log(`Hello, ${userName}!`);
   console.log(rules);
   for (let i = 0; i < roundsCount; i += 1) {
-    const round = getRound();
-    console.log(round[0]);
+    const [question, correctAnswer] = getRound();
 
+    console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = round[1];
-
     console.log('Correct!');
 
     if (userAnswer !== correctAnswer) {
