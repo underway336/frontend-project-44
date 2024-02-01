@@ -20,7 +20,7 @@ const getCalc = (number1, operator, number2) => {
 const getRound = () => {
   const number1 = getRandomNumber(1, 25);
   const number2 = getRandomNumber(1, 25);
-  const operator = operators[getRandomNumber(0, 2)];
+  const operator = operators[getRandomNumber(0, operators.length - 1)];
 
   const question = `${number1} ${operator} ${number2}`.toString();
   const answer = getCalc(number1, operator, number2).toString();
