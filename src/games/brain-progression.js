@@ -1,6 +1,6 @@
 import { cons, car, cdr } from '@hexlet/pairs';
 import { runGame } from '../index.js';
-import { getRandomNumber } from '../utils.js';
+import { getRandomNumber, getRandomIndex } from '../utils.js';
 
 const rules = 'What number is missing in the progression?';
 
@@ -13,7 +13,7 @@ const getProgression = (start, length, step) => {
   return progression;
 };
 
-const getMissingNumber = (progression, index) => cons(progression[index], '..');
+const getMissingNumber = (progression, randomIndex) => cons(progression[randomIndex], '..');
 
 const replaceMissingNumber = (progression, missingNumber) => {
   const resultProgression = [];
@@ -34,12 +34,12 @@ const getRound = () => {
   const length = getRandomNumber(5, 10);
   const progression = getProgression(start, length, step);
 
-  const randomIndex = getRandomNumber(0, (length - 1));
+  const randomIndex = getRandomIndex(progression);
   const missingNumber = getMissingNumber(progression, randomIndex);
   const resultProgression = replaceMissingNumber(progression, missingNumber);
 
   const answer = car(missingNumber).toString();
-  const question = `${resultProgression.join(' ')}`.toString();
+  const question = `${resultProgression.join(' ')}`;
 
   return [question, answer];
 };
