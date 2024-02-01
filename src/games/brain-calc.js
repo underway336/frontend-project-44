@@ -1,36 +1,32 @@
 import { runGame } from '../index.js';
-import { getRandomNumber, generateRounds } from '../utils.js';
+import getRandomNumber from '../utils.js';
+
+const rules = 'What is the result of the expression?';
+const operators = ['+', '-', '*'];
 
 const getCalc = (number1, operator, number2) => {
-  let correctAnswer = 0;
-  // eslint-disable-next-line default-case
   switch (operator) {
     case '+':
-      correctAnswer = number1 + number2;
-      break;
+      return number1 + number2;
     case '-':
-      correctAnswer = number1 - number2;
-      break;
+      return number1 - number2;
     case '*':
-      correctAnswer = number1 * number2;
-      break;
+      return number1 * number2;
+    default:
+      throw new Error(`Unknown operator: '${operator}'!`);
   }
-  return correctAnswer;
 };
 
 const getRound = () => {
   const number1 = getRandomNumber(1, 25);
   const number2 = getRandomNumber(1, 25);
-  const symbols = ['+', '-', '*'];
-  const operator = symbols[getRandomNumber(0, 2)];
+  const operator = operators[getRandomNumber(0, 2)];
 
-  return [`Question: ${number1} ${operator} ${number2}`, getCalc(number1, operator, number2)];
+  const question = `${number1} ${operator} ${number2}`.toString();
+  const answer = getCalc(number1, operator, number2).toString();
+  return [question, answer];
 };
 
-const runBrainCalc = () => {
-  const rules = 'What is the result of the expression?';
-  const rounds = generateRounds(getRound);
-  return runGame(rules, rounds);
-};
+const runBrainCalc = () => runGame(rules, getRound);
 
 export default runBrainCalc;
