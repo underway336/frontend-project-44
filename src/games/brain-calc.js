@@ -24,7 +24,7 @@ const getRound = () => {
 
   const operator = operators[randomIndex];
 
-  const question = `${number1} ${operator} ${number2}`.toString();
+  const question = `${number1} ${operator} ${number2}`;
   const answer = getCalc(number1, operator, number2).toString();
   return [question, answer];
 };
