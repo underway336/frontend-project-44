@@ -1,4 +1,3 @@
-import { cons, car, cdr } from '@hexlet/pairs';
 import { runGame } from '../index.js';
 import { getRandomNumber, getRandomIndex } from '../utils.js';
 
@@ -13,21 +12,6 @@ const getProgression = (start, length, step) => {
   return progression;
 };
 
-const getMissingNumber = (progression, randomIndex) => cons(progression[randomIndex], '..');
-
-const replaceMissingNumber = (progression, missingNumber) => {
-  const resultProgression = [];
-  for (let i = 0; i < progression.length; i += 1) {
-    const number = progression[i];
-    if (number === car(missingNumber)) {
-      resultProgression.push(cdr(missingNumber));
-    } else {
-      resultProgression.push(number);
-    }
-  }
-  return resultProgression;
-};
-
 const getRound = () => {
   const start = getRandomNumber(2, 50);
   const step = getRandomNumber(2, 10);
@@ -35,11 +19,11 @@ const getRound = () => {
   const progression = getProgression(start, length, step);
 
   const randomIndex = getRandomIndex(progression);
-  const missingNumber = getMissingNumber(progression, randomIndex);
-  const resultProgression = replaceMissingNumber(progression, missingNumber);
+  const missingNumber = progression[randomIndex];
+  progression[randomIndex] = '..';
 
-  const answer = car(missingNumber).toString();
-  const question = `${resultProgression.join(' ')}`;
+  const answer = missingNumber.toString();
+  const question = progression.join(' ');
 
   return [question, answer];
 };
