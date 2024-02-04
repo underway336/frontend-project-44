@@ -3,25 +3,26 @@ import { getRandomNumber } from '../utils.js';
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
+const minimumPrimeNumber = 2;
+
 const isPrimeNumber = (number) => {
-  const minimumPrimeNumber = 2;
   if (number < minimumPrimeNumber) {
-    return 'no';
+    return false;
   }
-  const squareRoot = Math.round(Math.sqrt(number));
-  for (let divider = minimumPrimeNumber; divider <= squareRoot; divider += 1) {
+  const checksCount = Math.round(Math.sqrt(number));
+  for (let divider = minimumPrimeNumber; divider <= checksCount; divider += 1) {
     if (number % divider === 0) {
-      return 'no';
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
 const getRound = () => {
   const number = getRandomNumber(2, 100);
 
   const question = number.toString();
-  const answer = isPrimeNumber(number);
+  const answer = isPrimeNumber(number) ? 'yes' : 'no';
   return [question, answer];
 };
 
