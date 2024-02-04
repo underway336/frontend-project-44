@@ -3,14 +3,14 @@ import { getRandomNumber } from '../utils.js';
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isPrimeNumber = (displayNumber) => {
+const isPrimeNumber = (number) => {
   const minimumPrimeNumber = 2;
-  if (displayNumber < minimumPrimeNumber) {
+  if (number < minimumPrimeNumber) {
     return 'no';
   }
-  const squareRoot = Math.round(Math.sqrt(displayNumber));
+  const squareRoot = Math.round(Math.sqrt(number));
   for (let divider = minimumPrimeNumber; divider <= squareRoot; divider += 1) {
-    if (displayNumber % divider === 0) {
+    if (number % divider === 0) {
       return 'no';
     }
   }
@@ -18,10 +18,10 @@ const isPrimeNumber = (displayNumber) => {
 };
 
 const getRound = () => {
-  const displayNumber = getRandomNumber(2, 100);
+  const number = getRandomNumber(2, 100);
 
-  const question = displayNumber.toString();
-  const answer = isPrimeNumber(displayNumber);
+  const question = number.toString();
+  const answer = isPrimeNumber(number);
   return [question, answer];
 };
 
