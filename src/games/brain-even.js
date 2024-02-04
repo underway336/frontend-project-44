@@ -1,5 +1,5 @@
 import { runGame } from '../index.js';
-import { getRandomNumber } from '../utils.js';
+import { getRandomNumber, checkProperty } from '../utils.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -9,7 +9,7 @@ const getRound = () => {
   const number = getRandomNumber(2, 100);
 
   const question = number.toString();
-  const answer = isEven(number) ? 'yes' : 'no';
+  const answer = checkProperty(isEven, number);
   return [question, answer];
 };
 
