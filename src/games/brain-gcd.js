@@ -17,6 +17,7 @@ const getGcd = (number1, number2) => {
   }
   return result;
 };
+
 const getRound = () => {
   const number1 = getRandomNumber(1, 100);
   const number2 = getRandomNumber(1, 100);
@@ -25,6 +26,7 @@ const getRound = () => {
   const answer = getGcd(number1, number2).toString();
   return [question, answer];
 };
+
 const runBrainGcd = () => runGame(rules, getRound);
 
 export default runBrainGcd;
