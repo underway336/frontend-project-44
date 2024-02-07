@@ -1,5 +1,5 @@
 import { runGame } from '../index.js';
-import { getRandomNumber, checkProperty } from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -19,10 +19,10 @@ const isPrimeNumber = (number) => {
 };
 
 const getRound = () => {
-  const number = getRandomNumber(2, 100);
+  const number = getRandomNumber(-100, 100);
 
   const question = number.toString();
-  const answer = checkProperty(isPrimeNumber, number);
+  const answer = isPrimeNumber(number) ? 'yes' : 'no';
   return [question, answer];
 };
 
